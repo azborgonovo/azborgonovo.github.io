@@ -1,5 +1,5 @@
 # Site Settings
-title: azborgonovo
+title: André Borgonovo
 email: ""
 description: >-
   Software Engineer passionate about building great products and sharing knowledge.
@@ -27,7 +27,7 @@ plugins:
 
 # SEO
 author:
-  name: azborgonovo
+  name: André Borgonovo
 
 # Polyglot i18n
 languages: ["en", "pt-br"]
