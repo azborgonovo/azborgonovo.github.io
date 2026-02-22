@@ -1,0 +1,20 @@
+title: "azborgonovo"
+description: "Software Engineer"
+author: "azborgonovo"
+url: "https://azborgonovo.github.io"
+baseurl: ""
+
+# Social links
+linkedin_username: azborgonovo
+x_username: azborgonovo
+
+# Build settings
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - vendor/

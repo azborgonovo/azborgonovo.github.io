@@ -1,0 +1,26 @@
+---
+layout: default
+title: Blog
+lang: en
+permalink: /blog/
+---
+<div class="blog-header">
+  <h1>Blog</h1>
+</div>
+
+{% assign en_posts = site.posts | where: "lang", "en" %}
+{% if en_posts.size > 0 %}
+<ul class="post-list">
+  {% for post in en_posts %}
+  <li>
+    <a class="post-title-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <span class="post-date">{{ post.date | date: "%B %-d, %Y" }}</span>
+    {% if post.excerpt %}
+    <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="no-posts">No posts yet — check back soon.</p>
+{% endif %}

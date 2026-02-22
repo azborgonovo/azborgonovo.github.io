@@ -1,0 +1,26 @@
+---
+layout: default
+title: Blog
+lang: pt-br
+permalink: /pt-br/blog/
+---
+<div class="blog-header">
+  <h1>Blog</h1>
+</div>
+
+{% assign ptbr_posts = site.posts | where: "lang", "pt-br" %}
+{% if ptbr_posts.size > 0 %}
+<ul class="post-list">
+  {% for post in ptbr_posts %}
+  <li>
+    <a class="post-title-link" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+    <span class="post-date">{{ post.date | date: "%d/%m/%Y" }}</span>
+    {% if post.excerpt %}
+    <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 160 }}</p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="no-posts">Nenhum post ainda — volte em breve.</p>
+{% endif %}
