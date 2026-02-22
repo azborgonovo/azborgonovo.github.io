@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ site.active_lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title | escape }} | {{ site.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    {% feed_meta %}
+    {% seo %}
+  </head>
+  <body>
+    {% include header.html %}
+
+    <main class="page-content">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.querySelector('.menu-toggle');
+      const siteNav = document.querySelector('.site-nav');
+      if (menuToggle && siteNav) {
+        menuToggle.addEventListener('click', () => {
+          const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', !expanded);
+          siteNav.classList.toggle('active');
+        });
+      }
+
+      // Language toggle switch
+      const langSwitch = document.getElementById('lang-switch');
+      if (langSwitch) {
+        langSwitch.addEventListener('change', () => {
+          window.location.href = langSwitch.dataset.target;
+        });
+      }
+    </script>
+  </body>
+</html>

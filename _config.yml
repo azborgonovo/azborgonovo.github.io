@@ -1,0 +1,46 @@
+# Site Settings
+title: azborgonovo
+email: ""
+description: >-
+  Software Engineer passionate about building great products and sharing knowledge.
+
+baseurl: ""
+url: "https://azborgonovo.github.io"
+
+# Social
+github_username: azborgonovo
+linkedin_username: azborgonovo
+x_username: azborgonovo
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-polyglot
+
+# SEO
+author:
+  name: azborgonovo
+
+# Polyglot i18n
+languages: ["en", "pt-br"]
+default_lang: "en"
+exclude_from_localization: ["assets", "scripts", "images"]
+parallel_localization: false
+
+# Exclude from build
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .gitignore
+  - .github/
+  - node_modules/
+  - vendor/
