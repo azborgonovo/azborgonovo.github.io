@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: post
-title: "From events to podcasts — a quiet few years"
+title: "From events to podcasts - a quiet few years"
 date: 2026-02-25
 categories: [general]
 tags: [blog, reflection, community, podcast]
