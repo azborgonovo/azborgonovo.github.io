@@ -1,13 +1,13 @@
 ---
 lang: pt-br
 layout: post
-title: "De eventos a podcasts - alguns anos sem escrever"
+title: "De eventos a podcasts - alguns anos sem publicar"
 date: 2026-02-25
 categories: [geral]
 tags: [blog, reflexão, comunidade, podcast]
 ---
 
-Pronto, aqui estou eu escrevendo publicamente mais uma vez - e já era hora. Minha mudança do Brasil para a Holanda alguns anos atrás deu início a uma série de novas aventuras que foram, aos poucos, empurrando posts para o segundo plano. Este novo site pessoal é minha forma de retomar esse espaço.
+Aqui estou eu escrevendo publicamente mais uma vez, e já era hora. Minha mudança do Brasil para a Holanda alguns anos atrás deu início a uma série de novas aventuras que foram, aos poucos, empurrando posts para o segundo plano. Este novo site pessoal é minha forma de retomar esse espaço.
 
 ## Nunca parei completamente
 
@@ -27,6 +27,6 @@ Outra estreia inesperada foi minha primeira contribuição ao Miroverse com um t
 
 Como John Udell provocou em seu post: [Too busy to blog? Count your keystrokes](https://www.hanselman.com/blog/do-they-deserve-the-gift-of-your-keystrokes).
 
-Escrever é uma das melhores formas de consolidar o aprendizado. Cada vez que resolvo um problema interessante ou descubro e aprendo algo novo, quero registrar esse conhecimento e compartilhá-lo - tanto para quem possa enfrentar os mesmos desafios quanto para o meu eu do futuro.
+Escrever é uma das melhores formas de consolidar o aprendizado. Cada vez que resolvo um problema interessante ou descubro algo novo, quero registrar esse conhecimento e compartilhá-lo - tanto para quem possa enfrentar os mesmos desafios quanto para o meu eu do futuro.
 
 Bem-vindo de volta! À nós dois!
