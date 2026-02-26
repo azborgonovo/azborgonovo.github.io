@@ -11,7 +11,7 @@ Aqui estou eu escrevendo publicamente mais uma vez, e já era hora. Minha mudan�
 
 ## Nunca parei completamente
 
-Logo após minha chegada em Eindhoven, compartilhei minhas primeiras [impressões sobre o mercado de trabalho holandês](https://www.linkedin.com/pulse/5-reasons-why-i-am-glad-working-netherlands-andre-borgonovo/) no LinkedIn. E nas empresas em que trabalhei escrevi bastante: páginas de Wiki, arquivos .md, diagramas C4. Espero esteja sendo útil para meus colegas e que ainda seja útil para o meu "eu futuro". Mas documentos internos, por definição, nunca vem ao público.
+Logo após minha chegada em Eindhoven, compartilhei minhas primeiras [impressões sobre o mercado de trabalho holandês](https://www.linkedin.com/pulse/5-reasons-why-i-am-glad-working-netherlands-andre-borgonovo/) no LinkedIn. E nas empresas em que trabalhei escrevi bastante: páginas de Wiki, arquivos .md, diagramas C4. Espero esteja sendo útil para meus colegas e que ainda seja útil para o meu "eu futuro". Mas documentos internos, por definição, nunca vêm ao público.
 
 ## Continuei presente na comunidade
 
@@ -29,4 +29,4 @@ Como John Udell provocou em seu post: [Too busy to blog? Count your keystrokes](
 
 Escrever é uma das melhores formas de consolidar o aprendizado. Cada vez que resolvo um problema interessante ou descubro algo novo, quero registrar esse conhecimento e compartilhá-lo - tanto para quem possa enfrentar os mesmos desafios quanto para o meu eu do futuro.
 
-Bem-vindo de volta! À nós dois!
+Bem-vindo de volta! A nós dois!

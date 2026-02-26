@@ -25,7 +25,7 @@ Another unexpected debut was my first ever contribution to the Miroverse with a 
 
 ## So, why now?
 
-As John Udel challenged in his post: [Too busy to blog? Count your keystrokes](https://www.hanselman.com/blog/do-they-deserve-the-gift-of-your-keystrokes).
+As John Udell challenged in his post: [Too busy to blog? Count your keystrokes](https://www.hanselman.com/blog/do-they-deserve-the-gift-of-your-keystrokes).
 
 Writing is one of the best ways to consolidate learning. Every time I solve an interesting problem or discover something new, I want to capture that knowledge and share it, both for others who might run into the same challenges and for my future self.
 
