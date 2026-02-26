@@ -7,9 +7,9 @@ lang: en
 
 <div class="agent-card">
   <div class="agent-card-header">
-    <span class="agent-card-dot"></span>
-    <span class="agent-card-dot"></span>
-    <span class="agent-card-dot"></span>
+    <span class="agent-card-dot" aria-hidden="true"></span>
+    <span class="agent-card-dot" aria-hidden="true"></span>
+    <span class="agent-card-dot" aria-hidden="true"></span>
     <span class="agent-card-filename">.github/andre-borgonovo.agent.md</span>
   </div>
   <div class="agent-card-body">
