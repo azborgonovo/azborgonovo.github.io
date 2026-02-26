@@ -35,20 +35,18 @@ layout: default
   <aside class="home-sidebar">
     <div class="sidebar-section">
       <h2>{% if site.active_lang == 'pt-br' %}Últimas Publicações{% else %}Latest Posts{% endif %}</h2>
-      {% if site.posts.size > 0 %}
+      {% assign lang_posts = site.posts | where: "lang", site.active_lang %}
+      {% if lang_posts.size > 0 %}
       <ul class="sidebar-posts">
-        {% for post in site.posts limit:5 %}
-        {% if site.active_lang == 'pt-br' and post.lang == 'pt-br' %}
+        {% for post in lang_posts limit:5 %}
         <li>
           <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          {% if site.active_lang == 'pt-br' %}
           <span class="post-date">{{ post.date | date: "%d/%m/%Y" }}</span>
-        </li>
-        {% elsif site.active_lang != 'pt-br' and post.lang != 'pt-br' %}
-        <li>
-          <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+          {% else %}
           <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+          {% endif %}
         </li>
-        {% endif %}
         {% endfor %}
       </ul>
       <a href="{{ '/posts/' | relative_url }}" class="view-all">{% if site.active_lang == 'pt-br' %}Ver todas as publicações →{% else %}View all posts →{% endif %}</a>
