@@ -1,53 +1,46 @@
 ---
 layout: home
 title: Home
-permalink: /
+permalink: /index.html
 lang: en
 ---
 
-<div class="agent-card">
-  <div class="agent-card-header">
-    <span class="agent-card-dot" aria-hidden="true"></span>
-    <span class="agent-card-dot" aria-hidden="true"></span>
-    <span class="agent-card-dot" aria-hidden="true"></span>
-    <span class="agent-card-filename">.github/andre-borgonovo.agent.md</span>
-  </div>
-  <div class="agent-card-body">
-
-    <div class="agent-yaml"><span class="y-sep">---</span>
-<span class="y-key">name</span><span class="y-sep">:</span> <span class="y-value">André Borgonovo</span>
-<span class="y-key">location</span><span class="y-sep">:</span> <span class="y-value">Eindhoven, Netherlands</span>
-<span class="y-key">languages</span><span class="y-sep">:</span> <span class="y-value">["en", "pt-br"]</span>
-<span class="y-key">version</span><span class="y-sep">:</span> <span class="y-value">2026.1</span>
-<span class="y-sep">---</span></div>
-
-    <div class="agent-section">
-      <p class="agent-section-title"># Instructions</p>
-      <p class="agent-section-subtitle">What I do and how I can help</p>
-      <p>I help engineering teams build better software through thoughtful architecture, sustainable practices, and a healthy engineering culture. Passionate about turning complexity into clarity — whether it's a system design, a team process, or an AI-powered workflow.</p>
+<section class="section">
+  <div class="code-window">
+    <div class="code-header">
+      <div class="window-dots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <span class="filename">.github/andre-borgonovo.agent.md</span>
     </div>
+    <div class="code-content">
+<pre class="agent-code"><span style="color:#30363d">---</span>
+<span style="color:#58a6ff">name:</span> <span style="color:#ffa657">André Borgonovo</span>
+<span style="color:#58a6ff">description:</span> <span style="color:#ffa657">Software developer, Architect, Tech lead</span>
+<span style="color:#58a6ff">location:</span> <span style="color:#ffa657">Netherlands | Remote</span>
+<span style="color:#58a6ff">version:</span> <span style="color:#ffa657">2026.3</span>
+<span style="color:#30363d">---</span>
 
-    <div class="agent-section">
-      <p class="agent-section-title"># Craft</p>
-      <p class="agent-section-subtitle">Areas I care about and love working with</p>
-      <ul>
-        <li><strong>Software Architecture</strong> — Modular design, C4 diagrams, API design, distributed systems</li>
-        <li><strong>Agile</strong> — Team topologies, continuous improvement, lean delivery, flow</li>
-        <li><strong>Modern Engineering</strong> — Clean code, just-enough documentation, developer experience, open source</li>
-        <li><strong>AI-assisted Development</strong> — Agentic workflows, AI pair programming, LLM tooling</li>
-      </ul>
-    </div>
+<span style="color:#a371f7;font-weight:600"># Instructions</span>
 
-    <div class="agent-section">
-      <p class="agent-section-title"># Context</p>
-      <p class="agent-section-subtitle">Background and community</p>
-      <ul>
-        <li>Co-founded the Eindhoven Kotlin User Group (2022–2023)</li>
-        <li>Speaker on API design, gRPC, and software architecture</li>
-        <li>Podcast guest on <em>Beyond Code</em> (modular software dev, teams &amp; architecture) and <em>Leap into Tech</em></li>
-        <li>Miroverse contributor — <a href="https://miro.com/templates/impact-network-inet/" target="_blank" rel="noopener">Impact Networks</a> template</li>
-      </ul>
-    </div>
+<span style="color:#7ee787;font-style:italic">&gt; What I do and how I can help</span>
 
-  </div>
-</div>
+I help product teams build better software faster through intentional architecture, sustainable practices, and a healthy engineering culture. Passionate about turning complexity into clarity, and clarity into valuable software.
+
+<span style="color:#a371f7;font-weight:600"># Craft</span>
+
+<span style="color:#7ee787;font-style:italic">&gt; Areas I care about and love working with</span>
+
+<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Software Architecture</span> High cohesion/Low coupling through API design, Diagramming (C4), Distributed systems, Team topologies
+<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Agile</span> Customer satisfaction, Continous delivery, Technical excellence
+<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Modern Engineering</span> Release pipelines, Automated testing, DevOps, Cloud-native
+
+<span style="color:#a371f7;font-weight:600"># Hobbies</span>
+
+<span style="color:#7ee787;font-style:italic">&gt; When I'm not doing software</span>
+
+<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Family & friends</span> Having a good time with loved ones around board games or cards
+<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Meditation</span> Observing the present and exploring the self
+<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Reading</span> Expanding ideas via podcasts/books or enjoying an exciting fantasy book
