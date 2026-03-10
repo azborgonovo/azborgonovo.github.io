@@ -5,49 +5,46 @@ lang: pt-br
 permalink: /
 ---
 
-<div class="agent-card">
-  <div class="agent-card-header">
-    <span class="agent-card-dot"></span>
-    <span class="agent-card-dot"></span>
-    <span class="agent-card-dot"></span>
-    <span class="agent-card-filename">.github/andre-borgonovo.agent.md</span>
+<section class="section">
+  <div class="code-window">
+    <div class="code-header">
+      <div class="window-dots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <span class="filename">.github/andre-borgonovo.agent.md</span>
+    </div>
+    <div class="code-content">
+<pre class="agent-code"><span style="color:#30363d">---</span>
+<span style="color:#58a6ff">name:</span> <span style="color:#ffa657">André Borgonovo</span>
+<span style="color:#58a6ff">description:</span> <span style="color:#ffa657">Desenvolvedor de Software, Arquiteto, Tech Lead</span>
+<span style="color:#58a6ff">location:</span> <span style="color:#ffa657">Holanda | Remoto</span>
+<span style="color:#58a6ff">version:</span> <span style="color:#ffa657">2026.3</span>
+<span style="color:#30363d">---</span>
+
+<span style="color:#a371f7;font-weight:600"># Instruções</span>
+
+<span style="color:#7ee787;font-style:italic">&gt; O que faço e como posso ajudar</span>
+
+Ajudo times de produto a construir software melhor e mais rápido por meio de arquitetura intencional, práticas sustentáveis e uma cultura de engenharia saudável. Apaixonado por transformar complexidade em clareza — e clareza em software de valor.
+
+<span style="color:#a371f7;font-weight:600"># Especialidades</span>
+
+<span style="color:#7ee787;font-style:italic">&gt; Áreas de interesse</span>
+
+<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Arquitetura de Software</span> Alta coesão/Baixo acoplamento via design de APIs, diagramas (C4), sistemas distribuídos, Team Topologies
+<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Agile</span> Satisfação do cliente, entrega contínua, excelência técnica
+<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Modern Engineering</span> Pipelines de release, testes automatizados, DevOps, cloud-native
+
+<span style="color:#a371f7;font-weight:600"># Hobbies</span>
+
+<span style="color:#7ee787;font-style:italic">&gt; Quando não estou fazendo software</span>
+
+<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Família &amp; amigos</span> Curtir momentos bons com quem amo, jogando conversa fora ou jogando algo junto
+<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Meditação</span> Observando o presente e explorando o ser
+<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Leitura</span> Expandindo minhas ideias através de podcasts/livros ou me aventurando em um livro de fantasia
+</pre>
+    </div>
   </div>
-  <div class="agent-card-body">
-
-    <div class="agent-yaml"><span class="y-sep">---</span>
-<span class="y-key">name</span><span class="y-sep">:</span> <span class="y-value">André Borgonovo</span>
-<span class="y-key">location</span><span class="y-sep">:</span> <span class="y-value">Eindhoven, Holanda</span>
-<span class="y-key">languages</span><span class="y-sep">:</span> <span class="y-value">["en", "pt-br"]</span>
-<span class="y-key">version</span><span class="y-sep">:</span> <span class="y-value">2026.1</span>
-<span class="y-sep">---</span></div>
-
-    <div class="agent-section">
-      <p class="agent-section-title"># Instruções</p>
-      <p class="agent-section-subtitle">O que faço e como posso ajudar</p>
-      <p>Ajudo times de engenharia a construir software melhor por meio de arquitetura bem pensada, práticas sustentáveis e uma cultura de engenharia saudável. Apaixonado por transformar complexidade em clareza — seja em design de sistemas, processos de time ou fluxos com IA.</p>
-    </div>
-
-    <div class="agent-section">
-      <p class="agent-section-title"># Especialidades</p>
-      <p class="agent-section-subtitle">Áreas que me importam e adoro trabalhar</p>
-      <ul>
-        <li><strong>Arquitetura de Software</strong> — Design modular, diagramas C4, design de APIs, sistemas distribuídos</li>
-        <li><strong>Agile</strong> — Topologias de time, melhoria contínua, entrega lean, fluxo</li>
-        <li><strong>Engenharia Moderna</strong> — Código limpo, documentação suficiente, experiência do desenvolvedor, open source</li>
-        <li><strong>Desenvolvimento com IA</strong> — Fluxos agênticos, programação em par com IA, ferramentas com LLM</li>
-      </ul>
-    </div>
-
-    <div class="agent-section">
-      <p class="agent-section-title"># Contexto</p>
-      <p class="agent-section-subtitle">Trajetória e comunidade</p>
-      <ul>
-        <li>Co-fundador do Eindhoven Kotlin User Group (2022–2023)</li>
-        <li>Palestrante sobre design de APIs, gRPC e arquitetura de software</li>
-        <li>Convidado nos podcasts <em>Beyond Code</em> (desenvolvimento modular, times &amp; arquitetura) e <em>Leap into Tech</em></li>
-        <li>Contribuidor no Miroverse — template de <a href="https://miro.com/templates/impact-network-inet/" target="_blank" rel="noopener">Redes de Impacto</a></li>
-      </ul>
-    </div>
-
-  </div>
-</div>
+</section>

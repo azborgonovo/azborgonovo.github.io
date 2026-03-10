@@ -44,3 +44,4 @@ I help product teams build better software faster through intentional architectu
 <span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Family & friends</span> Having a good time with loved ones around board games or cards
 <span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Meditation</span> Observing the present and exploring the self
 <span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Reading</span> Expanding ideas via podcasts/books or enjoying an exciting fantasy book
+</section>
