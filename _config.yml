@@ -46,3 +46,7 @@ exclude:
   - .github/
   - node_modules/
   - vendor/
+  - package.json
+  - package-lock.json
+  - playwright.config.ts
+  - tests/
