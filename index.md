@@ -1,7 +1,7 @@
 ---
 layout: home
 title: Home
-permalink: /index.html
+permalink: /
 lang: en
 ---
 

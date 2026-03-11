@@ -8,6 +8,7 @@ Thank you for your interest in contributing! This is a personal website, so cont
 
 - Ruby ≥ 3.0
 - Bundler
+- Node.js ≥ 18 (for Playwright end-to-end tests)
 
 ### Local Setup
 
@@ -16,8 +17,12 @@ Thank you for your interest in contributing! This is a personal website, so cont
 git clone https://github.com/azborgonovo/azborgonovo.github.io.git
 cd azborgonovo.github.io
 
-# Install dependencies
+# Install Ruby dependencies
 bundle install
+
+# Install Node.js dependencies (Playwright)
+npm install
+npx playwright install
 
 # Start the development server
 bundle exec jekyll serve
@@ -55,8 +60,26 @@ See [AGENTS.md](AGENTS.md) for a full description of the project structure, bili
 - Every page that exists in English must have a Portuguese counterpart in `pt-br/` (and vice versa).
 - Styles go in `assets/css/style.scss` only.
 
+## End-to-End Tests
+
+The project uses [Playwright](https://playwright.dev/) for end-to-end testing. Tests live in the `tests/` directory:
+
+The Playwright config (`playwright.config.ts`) automatically builds the site with `bundle exec jekyll build` and serves it on `http://localhost:4000` before running tests — no manual server start needed.
+
+```bash
+# Run all tests (builds the site automatically)
+npm test
+
+# Run with the Playwright UI
+npm run test:ui
+
+# Run a specific test file
+npx playwright test tests/posts.spec.ts
+```
+
 ## Submitting a Pull Request
 
 1. Fork the repository and create your branch from `main`.
 2. Make your changes and verify with `bundle exec jekyll build` (no build errors).
-3. Open a pull request against `main` with a clear description of what changed and why.
+3. Run `npm test` to ensure all end-to-end tests pass.
+4. Open a pull request against `main` with a clear description of what changed and why.
