@@ -71,7 +71,7 @@ The Playwright config (`playwright.config.ts`) automatically builds the site wit
 npm test
 
 # Run with the Playwright UI
-npx playwright test --ui
+npm run test:ui
 
 # Run a specific test file
 npx playwright test tests/posts.spec.ts
