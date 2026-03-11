@@ -63,6 +63,8 @@ All CSS lives in `assets/css/style.scss`. The colour palette uses Jekyll/SCSS va
 ```bash
 # Install dependencies
 bundle install
+npm install
+npx playwright install
 
 # Build the site
 bundle exec jekyll build
@@ -71,9 +73,12 @@ bundle exec jekyll build
 bundle exec jekyll serve
 
 # View at http://localhost:4000
+
+# Run end-to-end tests (builds the site automatically)
+npm test
 ```
 
-No automated test suite exists. Validate changes by running a local build and checking that:
+After making changes, validate by running `npm test` and checking that all Playwright tests pass. The test suite covers:
 1. `_site/index.html` — EN home renders correctly.
 2. `_site/pt-br/index.html` — PT-BR home renders in Portuguese.
 3. `_site/posts/index.html` — EN posts list shows only EN posts.
