@@ -7,7 +7,7 @@ categories: [general]
 tags: [gitlab, jira, automation, devops, webhook]
 ---
 
-Jira and GitLab's native integration surfaces commits, branches, and deployments inside a Jira work item. What it doesn't provide is the reverse view: *given a GitLab project, which Jira issues has it ever referenced?* This article fills that gap by wiring a GitLab push webhook to Jira Automation so that every push stamps the referenced issues with a label identifying the repository.
+Jira and GitLab's native integration surfaces commits, branches, and deployments inside a Jira work item. What it doesn't provide is the reverse view: *given a GitLab project, which Jira issues has it ever referenced?* This "How To?" offers a solution to wire a GitLab push webhook to Jira Automation so that every push stamps the referenced issues with a label identifying the repository.
 
 The end result is JQL like this:
 
@@ -158,15 +158,13 @@ Then add an **Edit work item** action using the **Advanced** JSON editor:
 
 1. Create and push a branch: `feature/PROJ-123-add-login`
 2. Open Jira issue `PROJ-123`
-3. Check the **GitLab Projects** field — it should now contain your repository's normalized name
+3. The **GitLab Projects** field should now contain your GitLab Project's normalized name
 
 ### Commit message contains an issue key
 
-1. Push a commit with message: `PROJ-456 Fix null pointer on login`
+1. Push a commit with message like `PROJ-456 Fix null pointer on login`
 2. Open Jira issue `PROJ-456` and verify the label was added
 
 ## Wrapping up
 
-One group-level webhook and one Jira Automation rule is all it takes. From this point on, every push across your GitLab namespace automatically stamps the referenced Jira issues with the repository name — no manual linking, no extra tooling. The `GitLab Projects` label field becomes a reliable index you can slice and dice in JQL, dashboards, and reports.
-
-If a push doesn't behave as expected, the Jira Automation **Audit log** (rule → **Audit log** tab) shows every execution with full branch and condition results.
+From this point on, every push across your GitLab group automatically stamps the referenced Jira issues with the GitLab Project name. The `GitLab Projects` label field becomes a reliable index you can use in JQL, dashboards, and reports.
