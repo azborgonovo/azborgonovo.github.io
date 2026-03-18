@@ -1,15 +1,15 @@
 ---
 lang: en
 layout: post
-title: "GitLab → Jira: Linking Repositories to Work items"
+title: "GitLab → Jira: Linking Repositories to Work Items"
 date: 2026-03-17
 categories: [general]
 tags: [gitlab, jira, automation, devops, webhook]
 ---
 
-Jira and GitLab have a native automation that allows users to visualize commits, pull request, builds and deployment information directly from the Jira UI. However, the native automation does not offer any means to allow users to query all work items that have been referenced from a given GitLab project/repository.
+Jira and GitLab have a native automation that allows users to visualize commits, pull requests, builds and deployment information directly from the Jira UI. However, the native integration offers no way to query all work items referenced by a given GitLab project.
 
-This article demonstrates how to enable Jira users create JQL queries like the following.
+This article demonstrates how to empower Jira users to be able to use JQL queries like the following.
 
 `project = PROJ AND "GitLab Projects[Labels]" = my-service`
 
@@ -64,7 +64,7 @@ Combine the branch ref, the top-level message (if any), and all commit messages 
 
 ### Variable: `issueKeys`
 
-Extract every Jira issue key from `candidateText`. Adjust the project key prefix (`PROJ`) to match your Jira project. You can add more more target projects by modifying the expression like `PROJ|XYZ`.
+Extract every Jira issue key from `candidateText`. Adjust the project key prefix (`PROJ`) to match your Jira project. You can target additional projects by expanding the pattern, e.g. `PROJ|XYZ`.
 
 ```
 {{ candidateText.match("((?:PROJ)-\d+)") }}
@@ -78,7 +78,7 @@ Normalize the project name into a safe label value. The following expression tra
 {{webhookData.project.name.trim().toLowerCase().replaceAll("[^a-z0-9]+","-").replaceAll("^-+|-+$","")}}
 ```
 
-For a project named `My Service API` this produces `my-service-api`. The label stays consistent regardless of how the project name is capitalized in GitLab.
+For a project named `My Service API`, this produces `my-service-api`. The label stays consistent regardless of how the project name is capitalized in GitLab.
 
 ### Second IF: skip when no issue key was found
 
@@ -88,7 +88,7 @@ For a project named `My Service API` this produces `my-service-api`. The label s
 
 Everything below this condition only runs when at least one issue key was matched.
 
-You can add a **Log** action here to facilitate troubleshooting:
+You can add a **Log** action here for troubleshooting:
 
 ```
 Project {{gitlabProject}} will be added to {{issueKeys}}
@@ -158,4 +158,4 @@ Then add an **Edit work item** action using the **Advanced** JSON editor:
 
 ## Summary
 
-With this setup one webhook handles all push events across repositories. Jira issues automatically accumulate labels showing which GitLab projects have referenced them, making it easy to trace cross-repository work in dashboards and JQL queries.
+With this setup, one webhook handles all push events across repositories. Jira issues automatically accumulate labels showing which GitLab projects have referenced them, making it easy to trace cross-repository work in dashboards and JQL queries.
