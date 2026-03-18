@@ -1,15 +1,17 @@
 ---
 lang: en
 layout: post
-title: "GitLab → Jira Automation: Linking Push Events to Issues"
+title: "GitLab → Jira: Linking Repositories to Work items"
 date: 2026-03-17
 categories: [general]
 tags: [gitlab, jira, automation, devops, webhook]
 ---
 
-I recently needed to automatically tag Jira issues with the GitLab repository that generated activity on them. The idea is simple: whenever a developer pushes code that references a Jira issue — either in the branch name or a commit message — the corresponding issue should get a label identifying which repository the work came from. One webhook, zero manual linking.
+Jira and GitLab have a native automation that allows users to visualize commits, pull request, builds and deployment information directly from the Jira UI. However, the native automation does not offer any means to allow users to query all work items that have been referenced from a given GitLab project/repository.
 
-This post documents the approach that is actually running in production, including the edge cases I had to work through.
+This article demonstrates how to enable Jira users create JQL queries like the following.
+
+`project = PROJ AND "GitLab Projects[Labels]" = my-service`
 
 ## Overview
 
@@ -62,7 +64,7 @@ Combine the branch ref, the top-level message (if any), and all commit messages 
 
 ### Variable: `issueKeys`
 
-Extract every Jira issue key from `candidateText`. Adjust the project key prefix (`PROJ`) to match your Jira project:
+Extract every Jira issue key from `candidateText`. Adjust the project key prefix (`PROJ`) to match your Jira project. You can add more more target projects by modifying the expression like `PROJ|XYZ`.
 
 ```
 {{ candidateText.match("((?:PROJ)-\d+)") }}
@@ -70,13 +72,13 @@ Extract every Jira issue key from `candidateText`. Adjust the project key prefix
 
 ### Variable: `gitlabProject`
 
-Normalize the repository name into a safe label value — lowercase, hyphens only, no leading or trailing hyphens:
+Normalize the project name into a safe label value. The following expression transforms it into kebab-case.
 
 ```
 {{webhookData.project.name.trim().toLowerCase().replaceAll("[^a-z0-9]+","-").replaceAll("^-+|-+$","")}}
 ```
 
-For a repository named `My Service API` this produces `my-service-api`. The label stays consistent regardless of how the project name is capitalized in GitLab.
+For a project named `My Service API` this produces `my-service-api`. The label stays consistent regardless of how the project name is capitalized in GitLab.
 
 ### Second IF: skip when no issue key was found
 
@@ -86,13 +88,13 @@ For a repository named `My Service API` this produces `my-service-api`. The labe
 
 Everything below this condition only runs when at least one issue key was matched.
 
-Add a **Log** action here while testing — it makes debugging much easier:
+You can add a **Log** action here to facilitate troubleshooting:
 
 ```
 Project {{gitlabProject}} will be added to {{issueKeys}}
 ```
 
-![Jira Automation rule showing variable setup and IF conditions](/assets/images/gitlab-jira-automation-1.jpeg)
+![First part of the Jira Automation rule](/assets/images/gitlab-jira-automation-1.jpeg)
 
 ### Branch rule: find the matching issues
 
@@ -124,7 +126,7 @@ Then add an **Edit work item** action using the **Advanced** JSON editor:
 }
 ```
 
-![Jira Automation branch rule with edit work item action](/assets/images/gitlab-jira-automation-2.jpeg)
+![Second part of the Jira Automation rule](/assets/images/gitlab-jira-automation-2.jpeg)
 
 ## Step 4 - GitLab: Configure the webhook
 
@@ -156,4 +158,4 @@ Then add an **Edit work item** action using the **Advanced** JSON editor:
 
 ## Summary
 
-With this setup one webhook handles all push events across repositories. Jira issues automatically accumulate labels showing which GitLab projects have touched them, making it easy to trace cross-repository work in dashboards and JQL queries. The normalization step keeps labels clean regardless of how projects happen to be named in GitLab.
+With this setup one webhook handles all push events across repositories. Jira issues automatically accumulate labels showing which GitLab projects have referenced them, making it easy to trace cross-repository work in dashboards and JQL queries.
