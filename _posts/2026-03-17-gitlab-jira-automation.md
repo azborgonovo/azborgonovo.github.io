@@ -7,9 +7,9 @@ categories: [general]
 tags: [gitlab, jira, automation, devops, webhook]
 ---
 
-Jira and GitLab have a native automation that allows users to visualize commits, pull requests, builds and deployment information directly from the Jira UI. However, the native integration offers no way to query all work items referenced by a given GitLab project.
+Jira and GitLab's native integration surfaces commits, branches, and deployments inside a Jira work item. What it doesn't provide is the reverse view: *given a GitLab project, which Jira issues has it ever referenced?* This article fills that gap by wiring a GitLab push webhook to Jira Automation so that every push stamps the referenced issues with a label identifying the repository.
 
-This article demonstrates how to empower Jira users to be able to use JQL queries like the following.
+The end result is JQL like this:
 
 `project = PROJ AND "GitLab Projects[Labels]" = my-service`
 
@@ -23,13 +23,20 @@ The flow:
 3. Jira Automation extracts the repository name and any Jira issue keys from the event
 4. The matching issues get a label like `my-service` added to the **GitLab Projects** custom field
 
+## Prerequisites
+
+- **Jira Cloud Premium or higher** Jira Automation is required (not available on Free/Standard plans)
+- **Jira admin rights** to create custom fields and add them to screens
+- **GitLab project Maintainer or Owner role** for configuring webhooks
+
 ## Step 1 - Jira: Create a custom label field
 
 1. Go to **Jira settings → Issues → Custom fields**
 2. Click **Create custom field**
 3. Select **Labels** (multi-value field)
-4. Name it: **GitLab Projects**
-5. Add it to the relevant screens (Create / Edit / View)
+4. Name it **GitLab Projects**
+5. Configure the **context**: the wizard will ask which projects and issue types the field applies to. Choose **All projects** for a global context, or select specific projects if you want to keep the field scoped
+6. Add it to the relevant screens (Create / Edit / View)
 
 > **Why labels?** They allow multiple projects per issue, are searchable, and compose well in dashboards and JQL queries.
 
@@ -40,11 +47,13 @@ The flow:
 3. Trigger: **Incoming webhook**
 4. Work items: **No work items from the webhook**
 
-Jira generates a **Webhook URL** and a **Secret** — keep both handy for Step 4.
+Keep both the **Webhook URL** and the **Secret** that Jira generates for Step 4.
 
 ## Step 3 - Jira: Build the automation logic
 
 This is where the real work happens. The automation uses variables to extract the issue key and normalize the project name before touching any Jira issues.
+
+For each variable below, add a **Create variable** action in the rule, set the variable name as shown, and paste the expression as its value.
 
 ### Guard condition: only process branch pushes
 
@@ -110,7 +119,7 @@ Inside the branch, add another **IF** to avoid redundant updates — only edit t
 {{issue.customfield_99999}} does not contain {{gitlabProject}}
 ```
 
-Replace `customfield_99999` with the actual field ID of your **GitLab Projects** custom field (find it in Jira → Custom Fields → view the field details URL).
+Replace `customfield_99999` with the actual field ID of your **GitLab Projects** custom field. To find it: go to **Jira Settings → Issues → Custom fields**, click the field name, and copy the numeric ID from the browser URL — it will look like `…customFieldId=99999`.
 
 Then add an **Edit work item** action using the **Advanced** JSON editor:
 
@@ -130,7 +139,7 @@ Then add an **Edit work item** action using the **Advanced** JSON editor:
 
 ## Step 4 - GitLab: Configure the webhook
 
-1. Go to your GitLab project → **Settings → Webhooks**
+1. Go to your GitLab group → **Settings → Webhooks**
 2. Click **Add new webhook**
 
 ### Configuration
@@ -156,6 +165,8 @@ Then add an **Edit work item** action using the **Advanced** JSON editor:
 1. Push a commit with message: `PROJ-456 Fix null pointer on login`
 2. Open Jira issue `PROJ-456` and verify the label was added
 
-## Summary
+## Wrapping up
 
-With this setup, one webhook handles all push events across repositories. Jira issues automatically accumulate labels showing which GitLab projects have referenced them, making it easy to trace cross-repository work in dashboards and JQL queries.
+One group-level webhook and one Jira Automation rule is all it takes. From this point on, every push across your GitLab namespace automatically stamps the referenced Jira issues with the repository name — no manual linking, no extra tooling. The `GitLab Projects` label field becomes a reliable index you can slice and dice in JQL, dashboards, and reports.
+
+If a push doesn't behave as expected, the Jira Automation **Audit log** (rule → **Audit log** tab) shows every execution with full branch and condition results.
