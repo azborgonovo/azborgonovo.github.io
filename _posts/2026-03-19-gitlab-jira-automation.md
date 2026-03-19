@@ -59,49 +59,61 @@ For each variable below, add a **Create variable** action in the rule, set the v
 
 Add a first **IF** condition at the top of the rule so that tag pushes and other non-branch events are skipped:
 
+{% raw %}
 ```
 {{webhookData.ref}} starts with refs/heads/
 ```
+{% endraw %}
 
 ### Variable: `candidateText`
 
 Combine the branch ref, the top-level message (if any), and all commit messages into one string to search against:
 
+{% raw %}
 ```
 {{webhookData.ref}} {{webhookData.message}} {{webhookData.commits.message.join(" ")}}
 ```
+{% endraw %}
 
 ### Variable: `issueKeys`
 
 Extract every Jira issue key from `candidateText`. Adjust the project key prefix (`PROJ`) to match your Jira project. You can target additional projects by expanding the pattern, e.g. `PROJ|XYZ`.
 
+{% raw %}
 ```
 {{ candidateText.match("((?:PROJ)-\d+)") }}
 ```
+{% endraw %}
 
 ### Variable: `gitlabProject`
 
 Normalize the project name into a safe label value. The following expression transforms it into kebab-case.
 
+{% raw %}
 ```
 {{webhookData.project.name.trim().toLowerCase().replaceAll("[^a-z0-9]+","-").replaceAll("^-+|-+$","")}}
 ```
+{% endraw %}
 
 For a project named `My Service API`, this produces `my-service-api`. The label stays consistent regardless of how the project name is capitalized in GitLab.
 
 ### Second IF: skip when no issue key was found
 
+{% raw %}
 ```
 {{issueKeys}} does not equal Empty
 ```
+{% endraw %}
 
 Everything below this condition only runs when at least one issue key was matched.
 
 You can add a **Log** action here for troubleshooting:
 
+{% raw %}
 ```
 Project {{gitlabProject}} will be added to {{issueKeys}}
 ```
+{% endraw %}
 
 ![First part of the Jira Automation rule](/assets/images/gitlab-jira-automation-1.jpeg)
 
@@ -109,20 +121,25 @@ Project {{gitlabProject}} will be added to {{issueKeys}}
 
 Add a **Branch rule** → **Related work items** with the JQL:
 
+{% raw %}
 ```
 key in ({{issueKeys}})
 ```
+{% endraw %}
 
 Inside the branch, add another **IF** to avoid redundant updates — only edit the issue when the label isn't already there:
 
+{% raw %}
 ```
 {{issue.customfield_99999}} does not contain {{gitlabProject}}
 ```
+{% endraw %}
 
 Replace `customfield_99999` with the actual field ID of your **GitLab Projects** custom field. To find it: go to **Jira Settings → Issues → Custom fields**, click the field name, and copy the numeric ID from the browser URL — it will look like `…customFieldId=99999`.
 
 Then add an **Edit work item** action using the **Advanced** JSON editor:
 
+{% raw %}
 ```json
 {
   "update": {
@@ -134,6 +151,7 @@ Then add an **Edit work item** action using the **Advanced** JSON editor:
   }
 }
 ```
+{% endraw %}
 
 ![Second part of the Jira Automation rule](/assets/images/gitlab-jira-automation-2.jpeg)
 

@@ -64,8 +64,6 @@ Jekyll processes all `.md` files through Liquid before rendering. Any `{{ }}` or
     ```
     {% endraw %}
 
-The `{% raw %}` / `{% endraw %}` pair can span multiple fenced code blocks; wrap the entire section rather than each block individually.
-
 ### Styles
 
 All CSS lives in `assets/css/style.scss`. The colour palette uses Jekyll/SCSS variables defined at the top of the file. Add new styles there; avoid inline styles except for minor one-off overrides in page content.
