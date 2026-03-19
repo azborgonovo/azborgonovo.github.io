@@ -54,6 +54,18 @@ tags: [tag1, tag2]
 
 **PT-BR pages** in `pt-br/` must include `lang: pt-br` and `permalink:` matching their EN counterpart.
 
+### Liquid-syntax content in posts
+
+Jekyll processes all `.md` files through Liquid before rendering. Any `{{ }}` or `{% %}` patterns in post body text or fenced code blocks are interpreted as Liquid tags — if the variable doesn't exist, it renders as empty string. Wrap such content in `{% raw %}` / `{% endraw %}` tags to display it literally:
+
+    {% raw %}
+    ```
+    {{webhookData.ref}} starts with refs/heads/
+    ```
+    {% endraw %}
+
+The `{% raw %}` / `{% endraw %}` pair can span multiple fenced code blocks; wrap the entire section rather than each block individually.
+
 ### Styles
 
 All CSS lives in `assets/css/style.scss`. The colour palette uses Jekyll/SCSS variables defined at the top of the file. Add new styles there; avoid inline styles except for minor one-off overrides in page content.
@@ -78,12 +90,11 @@ bundle exec jekyll serve
 npm test
 ```
 
-After making changes, validate by running `npm test` and checking that all Playwright tests pass. The test suite covers:
-1. `_site/index.html` — EN home renders correctly.
-2. `_site/pt-br/index.html` — PT-BR home renders in Portuguese.
-3. `_site/posts/index.html` — EN posts list shows only EN posts.
-4. `_site/pt-br/posts/index.html` — PT-BR posts list shows only PT-BR posts.
-5. Language toggle in the header links to the correct counterpart page.
+After making changes, validate by running `npm test` and checking that all Playwright tests pass.
+
+### Test naming convention
+
+Test files live in `tests/` and follow the pattern `<feature>.spec.ts`, where `<feature>` describes what is being tested (not which content exercises it).
 
 ## Adding Content
 
