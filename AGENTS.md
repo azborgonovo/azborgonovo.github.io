@@ -120,6 +120,14 @@ When adding a new content feature (layout, component, routing), add or extend an
 
 Playwright HTML reports are uploaded as workflow artifacts (30-day retention) for failure analysis.
 
+## Branching & Commits
+
+Always work on a feature branch. Never commit directly to `main`.
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/):
+- Prefixes: `feat:`, `fix:`, `docs:`, `style:`, `test:`, `chore:`
+- Subject line: ≤ 72 characters
+
 ## Adding Content
 
 ### New English blog post
