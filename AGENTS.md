@@ -20,12 +20,21 @@ This is a personal Jekyll website hosted on GitHub Pages at [azborgonovo.github.
 │   ├── page.html            # Generic content page layout
 │   └── post.html            # Blog post layout
 ├── _posts/                  # All blog posts (EN and PT-BR)
-├── assets/css/style.scss    # All styles (GitHub dark theme)
+├── assets/
+│   └── css/style.scss       # All styles (GitHub dark theme)
+├── pt-br/
+│   ├── index.md             # Portuguese home page
+│   └── posts.md             # Portuguese blog listing
+├── tests/                   # Playwright E2E test suite
+│   ├── homepage.spec.ts
+│   ├── navigation.spec.ts
+│   ├── posts.spec.ts
+│   └── liquid-expressions.spec.ts
+├── .github/
+│   ├── copilot-instructions.md
+│   └── workflows/pages.yml  # CI/CD pipeline (build → test → deploy)
 ├── index.md                 # English home page
-├── posts.md                 # English blog listing
-└── pt-br/
-    ├── index.md             # Portuguese home page
-    └── posts.md             # Portuguese blog listing
+└── posts.md                 # English blog listing
 ```
 
 ## Key Conventions
@@ -66,7 +75,7 @@ Jekyll processes all `.md` files through Liquid before rendering. Any `{{ }}` or
 
 ### Styles
 
-All CSS lives in `assets/css/style.scss`. The colour palette uses Jekyll/SCSS variables defined at the top of the file. Add new styles there; avoid inline styles except for minor one-off overrides in page content.
+All CSS lives in `assets/css/style.scss`. The colour palette uses SCSS variables defined at the top of the file (GitHub dark theme: background `#0d1117`, text `#f0f6fc`, accent purple `#a371f7`, accent blue `#58a6ff`). Add new styles there; avoid inline styles except for minor one-off overrides in page content.
 
 ## Build & Test
 
@@ -92,7 +101,32 @@ After making changes, validate by running `npm test` and checking that all Playw
 
 ### Test naming convention
 
-Test files live in `tests/` and follow the pattern `<feature>.spec.ts`, where `<feature>` describes what is being tested (not which content exercises it).
+Test files live in `tests/` and follow the pattern `<feature>.spec.ts`, where `<feature>` describes what is being tested (not which content exercises it). Current test files:
+
+- `homepage.spec.ts` — EN and PT-BR homepage structure and content
+- `navigation.spec.ts` — language toggle and nav link behaviour
+- `posts.spec.ts` — post listing pages (language isolation)
+- `liquid-expressions.spec.ts` — verifies `{{ }}` patterns render literally in posts
+
+When adding a new content feature (layout, component, routing), add or extend an appropriate spec file. When writing a post that uses Liquid-syntax code examples (wrapped in `{% raw %}…{% endraw %}`), add a test case in `liquid-expressions.spec.ts` to guard against regressions.
+
+## CI/CD Pipeline
+
+`.github/workflows/pages.yml` runs on every push to `main` and on manual dispatch:
+
+1. **build** — `bundle exec jekyll build` and uploads the `_site/` artifact.
+2. **test** — runs in parallel with build; installs Ruby + Node.js 24, then `npm test` (Playwright on Chromium).
+3. **deploy** — depends on both `build` and `test` succeeding; deploys to GitHub Pages.
+
+Playwright HTML reports are uploaded as workflow artifacts (30-day retention) for failure analysis.
+
+## Branching & Commits
+
+Always work on a feature branch. Never commit directly to `main`.
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/):
+- Prefixes: `feat:`, `fix:`, `docs:`, `style:`, `test:`, `chore:`
+- Subject line: ≤ 72 characters
 
 ## Adding Content
 
