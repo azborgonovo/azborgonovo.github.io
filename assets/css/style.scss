@@ -661,10 +661,11 @@ hr {
 
 .post-content {
   img {
-    max-width: 100%;
+    max-width: 75%;
     height: auto;
     border-radius: 8px;
-    margin: 1rem 0;
+    margin: 1rem auto;
+    display: block;
   }
 }
 
