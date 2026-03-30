@@ -3,8 +3,8 @@ lang: pt-br
 layout: post
 title: "[TFS – Command-line] – Destruindo elementos"
 date: 2013-05-05
-categories: [ALM, Command-line, TFS]
-tags: [ALM, Command-line, TFS, tf destroy]
+categories: [coding]
+tags: [command-line, TFS]
 ---
 
 Olá pessoal!

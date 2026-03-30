@@ -3,8 +3,8 @@ lang: en
 layout: post
 title: "[TFS – Command-line] – Removing a Team Project"
 date: 2013-05-03
-categories: [ALM, Command-line, TFS]
-tags: [ALM, Command-line, TFS, TFSDeleteProject]
+categories: [coding]
+tags: [command-line, TFS]
 ---
 
 Hello everyone!

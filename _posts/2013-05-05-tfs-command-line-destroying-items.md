@@ -3,8 +3,8 @@ lang: en
 layout: post
 title: "[TFS – Command-line] – Destroying Items"
 date: 2013-05-05
-categories: [ALM, Command-line, TFS]
-tags: [ALM, Command-line, TFS, tf destroy]
+categories: [coding]
+tags: [command-line, TFS]
 ---
 
 Hello everyone!

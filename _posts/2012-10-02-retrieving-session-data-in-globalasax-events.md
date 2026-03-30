@@ -3,8 +3,8 @@ lang: en
 layout: post
 title: "Retrieving Session Data in Global.asax Events"
 date: 2012-10-02
-categories: [Programming]
-tags: [Application_Error, Global.asax, IReadOnlySessionState, IRequiresSessionState, log, session]
+categories: [coding]
+tags: [log, session]
 ---
 
 It is very useful to handle the `Application_Error` event in `Global.asax` to log unexpected exceptions in your application. This can be done by overriding the `Application_Error` method as shown below:

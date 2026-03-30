@@ -3,8 +3,8 @@ lang: pt-br
 layout: post
 title: "Recuperando dados da Sessão nos eventos do Global.asax"
 date: 2012-10-02
-categories: [Programação]
-tags: [Application_Error, Global.asax, IReadOnlySessionState, IRequiresSessionState, log, sessão]
+categories: [coding]
+tags: [log, sessão]
 ---
 
 É muito útil utilizar o evento `Application_Error` do `Global.asax` para gravar logs das exceções inesperadas que temos em nossa aplicação. Isso pode ser feito reescrevendo o método `Application_Error` como o código a seguir:

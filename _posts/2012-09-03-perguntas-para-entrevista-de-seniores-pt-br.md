@@ -3,13 +3,13 @@ lang: pt-br
 layout: post
 title: "Perguntas para entrevista de Seniores"
 date: 2012-09-03
-categories: [Boas Práticas, Programação]
+categories: [people]
 tags: [entrevista, scott hanselman, senior]
 ---
 
 ![Entrevista de emprego](/assets/images/perguntas-para-entrevista-de-seniores/entrevista-de-emprego-01.jpg)
 
-No começo (fevereiro) de 2011 o [Hanselman](http://www.hanselman.com/blog/) publicou um [post](http://www.hanselman.com/blog/NewInterviewQuestionsForSeniorSoftwareEngineers.aspx) contendo diversas perguntas que ele considera úteis para uma entrevista com um engenheiro de software Senior.
+No começo (fevereiro) de 2011 o [Hanselman](http://www.hanselman.com/blog/) publicou um [post](https://www.hanselman.com/blog/new-interview-questions-for-senior-software-engineers) contendo diversas perguntas que ele considera úteis para uma entrevista com um engenheiro de software Senior.
 
 Para quem tiver a intenção de utilizá-la para avaliar seus desenvolvedores Seniores é bem interessante, porém principalmente para quem pretende tornar-se um Senior, essa lista pode servir como guia, e além disso como parâmetro de autoavaliação.
 

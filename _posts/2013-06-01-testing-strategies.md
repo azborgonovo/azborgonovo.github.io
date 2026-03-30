@@ -3,7 +3,7 @@ lang: en
 layout: post
 title: "Testing Strategies"
 date: 2013-06-01
-categories: [ALM, Best Practices]
+categories: [testing]
 tags: [testing]
 ---
 
@@ -24,4 +24,4 @@ I decided to do a loose translation of the table to help Brazilian readers, and 
 | Unit Testing | A test of the smallest unit of code (method / class, etc.) that can be tested in isolation from other units. | Visual Studio Test Explorer / Unit Test Frameworks |
 | User Acceptance Testing | Near the end of each product cycle, users are invited to perform acceptance testing in a production-like scenario, typically based on test cases. | Automated testing with MTM |
 
-Hope it helps. Cheers!
+Hope this helps. Cheers!

@@ -3,7 +3,7 @@ lang: pt-br
 layout: post
 title: "Estratégias de Teste"
 date: 2013-06-01
-categories: [ALM, Boas Práticas]
+categories: [testing]
 tags: [testes]
 ---
 
