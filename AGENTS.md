@@ -61,6 +61,19 @@ tags: [tag1, tag2]
 ---
 ```
 
+**Categories** use a fixed, lowercase taxonomy shared across EN and PT-BR posts:
+
+| Category | Use for |
+|---|---|
+| `general` | Personal reflections, meta posts, community |
+| `coding` | Programming, tools, DevOps, software engineering |
+| `testing` | Testing strategies, QA, test tooling |
+| `observability` | Logging, monitoring, tracing, alerting |
+| `people` | Hiring, interviews, career, team dynamics |
+| `ai` | AI/ML topics, LLMs, AI tooling |
+
+**Tags** are lowercase, free-form keywords (use the post's language for translated terms, e.g. `entrevista` in PT-BR, `interview` in EN). Prefer a small set of meaningful tags over exhaustive lists.
+
 **PT-BR pages** in `pt-br/` must include `lang: pt-br` and `permalink:` matching their EN counterpart.
 
 ### Liquid-syntax content in posts
@@ -129,6 +142,16 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/):
 - Subject line: ≤ 72 characters
 
 ## Adding Content
+
+### Post images
+
+Images for a post must live in a dedicated subfolder named after the post's slug (the date-less part of the filename, without the `-pt-br` suffix):
+
+```
+assets/images/<slug>/image-name.ext
+```
+
+For example, images for `2026-03-19-gitlab-jira-automation.md` and its PT-BR counterpart belong in `assets/images/gitlab-jira-automation/`. Both language variants of a post share the same image folder and reference the same image paths. Never place post images directly in `assets/images/`.
 
 ### New English blog post
 

@@ -3,7 +3,7 @@ lang: pt-br
 layout: post
 title: "De eventos a podcasts - alguns anos sem publicar"
 date: 2026-02-25
-categories: [geral]
+categories: [general]
 tags: [blog, reflexão, comunidade, podcast]
 ---
 

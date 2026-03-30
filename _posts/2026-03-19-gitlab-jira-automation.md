@@ -115,7 +115,7 @@ Project {{gitlabProject}} will be added to {{issueKeys}}
 ```
 {% endraw %}
 
-![First part of the Jira Automation rule](/assets/images/gitlab-jira-automation-1.jpeg)
+![First part of the Jira Automation rule](/assets/images/gitlab-jira-automation/gitlab-jira-automation-1.jpeg)
 
 ### Branch rule: find the matching issues
 
@@ -153,7 +153,7 @@ Then add an **Edit work item** action using the **Advanced** JSON editor:
 ```
 {% endraw %}
 
-![Second part of the Jira Automation rule](/assets/images/gitlab-jira-automation-2.jpeg)
+![Second part of the Jira Automation rule](/assets/images/gitlab-jira-automation/gitlab-jira-automation-2.jpeg)
 
 ## Step 4 - GitLab: Configure the webhook
 
