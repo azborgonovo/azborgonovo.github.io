@@ -32,7 +32,7 @@ void Application_Error(object sender, EventArgs e)
 
 However, in some situations it is useful to read data from the `Session` to include additional context — for example, the authenticated user. If you simply access the session from within `Application_Error`, you may occasionally encounter this exception:
 
-![Session state error](/assets/images/recuperando-dados-da-sessao-nos-eventos-do-globalasax/image_thumb1.png)
+![Session state error](/assets/images/retrieving-session-data-in-globalasax-events/image_thumb1.png)
 
 > "Session state is not available in this context"
 

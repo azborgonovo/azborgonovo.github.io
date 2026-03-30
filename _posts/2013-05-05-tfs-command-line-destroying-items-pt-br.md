@@ -13,11 +13,11 @@ Essa semana precisei remover um determinado arquivo do meu TFS, infelizmente tiv
 
 Abaixo uma imagem com a execução do comando `tf destroy`:
 
-![Executando tf destroy](/assets/images/tfs-command-line-destruindo-elementos/destroy.png)
+![Executando tf destroy](/assets/images/tfs-command-line-destroying-items/destroy.png)
 
 Abaixo uma breve explicação sobre cada parâmetro:
 
-![Parâmetros do tf destroy](/assets/images/tfs-command-line-destruindo-elementos/info.png)
+![Parâmetros do tf destroy](/assets/images/tfs-command-line-destroying-items/info.png)
 
 Basicamente é isso, espero que tenha entendido!
 

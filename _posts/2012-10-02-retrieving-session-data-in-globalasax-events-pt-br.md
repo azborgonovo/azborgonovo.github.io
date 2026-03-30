@@ -32,7 +32,7 @@ void Application_Error(object sender, EventArgs e)
 
 Porém em algumas situações é interessante recuperarmos dados da `Session` para apresentar mais detalhes sobre, por exemplo, o usuário autenticado. Se simplesmente chamarmos a sessão a partir desse método (`Application_Error`) podemos, em algumas ocasiões, ter a seguinte exceção:
 
-![Erro de estado de sessão](/assets/images/recuperando-dados-da-sessao-nos-eventos-do-globalasax/image_thumb1.png)
+![Erro de estado de sessão](/assets/images/retrieving-session-data-in-globalasax-events/image_thumb1.png)
 
 > "Estado da Sessão não está disponível neste contexto"
 

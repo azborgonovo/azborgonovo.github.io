@@ -13,11 +13,11 @@ A while back, when I first started using TFService (back then it was still calle
 
 The image below shows the parameters for the `TFSDeleteProject` command. To see this help output, simply type `TFSDeleteProject.exe`:
 
-![TFSDeleteProject parameters](/assets/images/tfs-command-line-removendo-team-project/informacoes.png)
+![TFSDeleteProject parameters](/assets/images/tfs-command-line-removing-team-project/informacoes.png)
 
 And here is the command executed to delete the team project:
 
-![Running TFSDeleteProject](/assets/images/tfs-command-line-removendo-team-project/comando1.png)
+![Running TFSDeleteProject](/assets/images/tfs-command-line-removing-team-project/comando1.png)
 
 ```
 TFSDeleteProject /q /force /collection:TeamProjectCollection/ TeamProject

@@ -7,7 +7,7 @@ categories: [people]
 tags: [entrevista, scott hanselman, senior]
 ---
 
-![Entrevista de emprego](/assets/images/perguntas-para-entrevista-de-seniores/entrevista-de-emprego-01.jpg)
+![Entrevista de emprego](/assets/images/interview-questions-for-senior-developers/entrevista-de-emprego-01.jpg)
 
 No começo (fevereiro) de 2011 o [Hanselman](http://www.hanselman.com/blog/) publicou um [post](https://www.hanselman.com/blog/new-interview-questions-for-senior-software-engineers) contendo diversas perguntas que ele considera úteis para uma entrevista com um engenheiro de software Senior.
 

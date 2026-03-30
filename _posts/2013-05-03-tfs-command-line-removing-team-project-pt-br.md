@@ -13,11 +13,11 @@ Há algum tempo, assim que comecei a utilizar o TFService (na época ainda era a
 
 Na imagem abaixo algumas informações relacionadas aos parâmetros do comando `TFSDeleteProject`. Para visualizar essas informações basta digitar `TFSDeleteProject.exe`:
 
-![Parâmetros do TFSDeleteProject](/assets/images/tfs-command-line-removendo-team-project/informacoes.png)
+![Parâmetros do TFSDeleteProject](/assets/images/tfs-command-line-removing-team-project/informacoes.png)
 
 E aqui temos o comando executado para excluir o team project:
 
-![Executando o TFSDeleteProject](/assets/images/tfs-command-line-removendo-team-project/comando1.png)
+![Executando o TFSDeleteProject](/assets/images/tfs-command-line-removing-team-project/comando1.png)
 
 ```
 TFSDeleteProject /q /force /collection:TeamProjectCollection/ TeamProject
