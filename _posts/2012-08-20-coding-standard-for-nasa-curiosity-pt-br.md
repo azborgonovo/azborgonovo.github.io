@@ -15,4 +15,4 @@ Esse objetivo por si só já bastante fascinante, porém devo dizer que o que re
 
 Bom, grande parte das perguntas pode ser respondidas por nossa amiga Wikipédia. Mas deem uma olhada no que consegui encontrar: um documento de padronização usado para codificar a Curiosity. O interessante é que não há nenhuma fórmula mágica. O que eles fazem é exatamente aquilo que todo mundo sabe que é certo, porém muitas vezes não usam.
 
-[JPL Institutional Coding Standard for the C Programming Language (PDF)](/assets/images/coding-standard-usado-pela-nasa-na-curiosity/jpl_coding_standard_c.pdf)
+[JPL Institutional Coding Standard for the C Programming Language (PDF)](/assets/files/coding-standard-for-nasa-curiosity/jpl_coding_standard_c.pdf)

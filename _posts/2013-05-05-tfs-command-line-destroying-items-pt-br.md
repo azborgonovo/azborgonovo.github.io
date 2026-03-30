@@ -4,7 +4,7 @@ layout: post
 title: "[TFS – Command-line] – Destruindo elementos"
 date: 2013-05-05
 categories: [coding]
-tags: [command-line, TFS]
+tags: [command-line, tfs]
 ---
 
 Olá pessoal!
