@@ -15,6 +15,7 @@ x_username: azborgonovo
 # Build settings
 markdown: kramdown
 highlighter: rouge
+permalink: pretty
 kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:

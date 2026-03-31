@@ -5,7 +5,7 @@ title: "GitLab → Jira: Vinculando Repositórios a Work Items"
 date: 2026-03-19
 categories: [general]
 tags: [gitlab, jira, automacao, devops, webhook]
-permalink: /general/2026/03/19/gitlab-jira-automation.html
+permalink: /general/2026/03/19/gitlab-jira-automation/
 ---
 
 A integração nativa entre Jira e GitLab possibilita acesso a commits, branches e deploys dentro de um work item do Jira. O que ela não oferece é o contrário: *dado um projeto GitLab, quais issues do Jira ele já referenciou?* Este post apresenta uma solução para conectar um webhook do GitLab ao Jira Automation, marcar as issues referenciadas com um label identificando o repositório.

@@ -52,7 +52,7 @@ test.describe('Header navigation', () => {
 
 test.describe('Language toggle on post pages', () => {
   test('switches from EN post to its PT-BR translation', async ({ page }) => {
-    await page.goto('/general/2026/02/25/finally-writing-again.html');
+    await page.goto('/general/2026/02/25/finally-writing-again/');
     await page.evaluate(() =>
       document.getElementById('lang-switch')?.dispatchEvent(new Event('change'))
     );
@@ -61,7 +61,7 @@ test.describe('Language toggle on post pages', () => {
   });
 
   test('switches from PT-BR post back to its EN version', async ({ page }) => {
-    await page.goto('/pt-br/general/2026/02/25/finally-writing-again.html');
+    await page.goto('/pt-br/general/2026/02/25/finally-writing-again/');
     await page.evaluate(() =>
       document.getElementById('lang-switch')?.dispatchEvent(new Event('change'))
     );

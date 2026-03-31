@@ -6,7 +6,7 @@ const liquidExpressions = [
 
 test.describe('EN Liquid expressions', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/general/2026/03/19/gitlab-jira-automation.html');
+    await page.goto('/general/2026/03/19/gitlab-jira-automation/');
   });
 
   for (const expr of liquidExpressions) {
@@ -18,7 +18,7 @@ test.describe('EN Liquid expressions', () => {
 
 test.describe('PT-BR Liquid expressions', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/pt-br/general/2026/03/19/gitlab-jira-automation.html');
+    await page.goto('/pt-br/general/2026/03/19/gitlab-jira-automation/');
   });
 
   for (const expr of liquidExpressions) {

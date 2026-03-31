@@ -5,7 +5,7 @@ title: "Coding Standard para NASA Curiosity"
 date: 2012-08-20
 categories: [coding]
 tags: [coding standard]
-permalink: /coding/2012/08/20/coding-standard-for-nasa-curiosity.html
+permalink: /coding/2012/08/20/coding-standard-for-nasa-curiosity/
 ---
 
 Falando em boas práticas…
