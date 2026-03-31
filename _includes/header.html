@@ -16,9 +16,11 @@
       {% if site.active_lang == "pt-br" %}
       <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Início</a>
       <a href="{{ '/posts/' | relative_url }}" {% if page.url == '/posts/' %}class="active"{% endif %}>Publicações</a>
+      <a href="{{ '/media/' | relative_url }}" {% if page.url == '/media/' %}class="active"{% endif %}>Mídia</a>
       {% else %}
       <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
       <a href="{{ '/posts/' | relative_url }}" {% if page.url == '/posts/' %}class="active"{% endif %}>Posts</a>
+      <a href="{{ '/media/' | relative_url }}" {% if page.url == '/media/' %}class="active"{% endif %}>Media</a>
       {% endif %}
 
       <!-- Language Toggle Switch -->

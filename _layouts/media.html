@@ -1,0 +1,157 @@
+---
+layout: default
+---
+
+{% assign podcast_items = page.items | where: "type", "podcast" %}
+{% assign video_items = page.items | where: "type", "video" %}
+{% assign template_items = page.items | where: "type", "template" %}
+
+<article class="media-page">
+  <header class="post-header">
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.intro %}<p class="media-intro">{{ page.intro }}</p>{% endif %}
+  </header>
+
+  {% if podcast_items.size > 0 %}
+  <section class="media-section">
+    <h2 class="media-section-heading">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        <line x1="12" y1="19" x2="12" y2="23"/>
+        <line x1="8" y1="23" x2="16" y2="23"/>
+      </svg>
+      {% if site.active_lang == 'pt-br' %}Podcasts{% else %}Podcasts{% endif %}
+    </h2>
+    <div class="media-grid">
+      {% for item in podcast_items %}
+      <div class="media-card media-card--podcast">
+        <div class="media-card-visual">
+          {% if item.thumbnail %}
+          <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }}">
+          {% else %}
+          <div class="media-card-placeholder media-card-placeholder--podcast">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </div>
+          {% endif %}
+        </div>
+        <div class="media-card-body">
+          <div class="media-card-meta">
+            <span class="media-type-badge media-type-badge--podcast">Podcast</span>
+            {% if item.date %}<span class="media-card-date">{{ item.date }}</span>{% endif %}
+          </div>
+          <h3 class="media-card-title">
+            <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+          </h3>
+          {% if item.show %}<p class="media-card-show">{{ item.show }}</p>{% endif %}
+          {% if item.description %}<p class="media-card-description">{{ item.description }}</p>{% endif %}
+          <a href="{{ item.url }}" class="media-card-cta" target="_blank" rel="noopener noreferrer">
+            {% if site.active_lang == 'pt-br' %}Ouvir{% else %}Listen{% endif %} &rarr;
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if video_items.size > 0 %}
+  <section class="media-section">
+    <h2 class="media-section-heading">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polygon points="23 7 16 12 23 17 23 7"/>
+        <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+      </svg>
+      {% if site.active_lang == 'pt-br' %}Entrevistas em Vídeo{% else %}Video Interviews{% endif %}
+    </h2>
+    <div class="media-grid">
+      {% for item in video_items %}
+      <div class="media-card media-card--video">
+        <div class="media-card-visual">
+          {% if item.thumbnail %}
+          <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }}">
+          {% else %}
+          <div class="media-card-placeholder media-card-placeholder--video">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <polygon points="10 8 16 12 10 16 10 8"/>
+            </svg>
+          </div>
+          {% endif %}
+        </div>
+        <div class="media-card-body">
+          <div class="media-card-meta">
+            <span class="media-type-badge media-type-badge--video">
+              {% if site.active_lang == 'pt-br' %}Vídeo{% else %}Video{% endif %}
+            </span>
+            {% if item.date %}<span class="media-card-date">{{ item.date }}</span>{% endif %}
+          </div>
+          <h3 class="media-card-title">
+            <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+          </h3>
+          {% if item.show %}<p class="media-card-show">{{ item.show }}</p>{% endif %}
+          {% if item.description %}<p class="media-card-description">{{ item.description }}</p>{% endif %}
+          <a href="{{ item.url }}" class="media-card-cta" target="_blank" rel="noopener noreferrer">
+            {% if site.active_lang == 'pt-br' %}Assistir{% else %}Watch{% endif %} &rarr;
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if template_items.size > 0 %}
+  <section class="media-section">
+    <h2 class="media-section-heading">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7"/>
+        <rect x="14" y="3" width="7" height="7"/>
+        <rect x="14" y="14" width="7" height="7"/>
+        <rect x="3" y="14" width="7" height="7"/>
+      </svg>
+      Templates
+    </h2>
+    <div class="media-grid">
+      {% for item in template_items %}
+      <div class="media-card media-card--template">
+        <div class="media-card-visual">
+          {% if item.thumbnail %}
+          <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }}">
+          {% else %}
+          <div class="media-card-placeholder media-card-placeholder--template">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </div>
+          {% endif %}
+        </div>
+        <div class="media-card-body">
+          <div class="media-card-meta">
+            <span class="media-type-badge media-type-badge--template">Template</span>
+            {% if item.date %}<span class="media-card-date">{{ item.date }}</span>{% endif %}
+          </div>
+          <h3 class="media-card-title">
+            <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+          </h3>
+          {% if item.show %}<p class="media-card-show">{{ item.show }}</p>{% endif %}
+          {% if item.description %}<p class="media-card-description">{{ item.description }}</p>{% endif %}
+          <a href="{{ item.url }}" class="media-card-cta" target="_blank" rel="noopener noreferrer">
+            {% if site.active_lang == 'pt-br' %}Abrir Template{% else %}Open Template{% endif %} &rarr;
+          </a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+</article>
