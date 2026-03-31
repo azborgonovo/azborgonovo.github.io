@@ -5,6 +5,7 @@ title: "De eventos a podcasts - alguns anos sem publicar"
 date: 2026-02-25
 categories: [general]
 tags: [blog, reflexão, comunidade, podcast]
+permalink: /general/2026/02/25/finally-writing-again.html
 ---
 
 Aqui estou eu escrevendo publicamente mais uma vez, e já era hora. Minha mudança do Brasil para a Holanda alguns anos atrás deu início a uma série de novas aventuras que foram, aos poucos, empurrando posts para o segundo plano. Este novo site pessoal é minha forma de retomar esse espaço.

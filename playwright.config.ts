@@ -18,7 +18,7 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'bundle exec jekyll build --quiet && npx --yes serve _site -p 4000',
+    command: 'bin/jekyll build --quiet && npx --yes serve _site -p 4000',
     url: 'http://localhost:4000',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,

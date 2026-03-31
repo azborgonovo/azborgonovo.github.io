@@ -50,6 +50,26 @@ test.describe('Header navigation', () => {
   });
 });
 
+test.describe('Language toggle on post pages', () => {
+  test('switches from EN post to its PT-BR translation', async ({ page }) => {
+    await page.goto('/general/2026/02/25/finally-writing-again.html');
+    await page.evaluate(() =>
+      document.getElementById('lang-switch')?.dispatchEvent(new Event('change'))
+    );
+    await page.waitForURL(/\/pt-br\//);
+    await expect(page.locator('.post-header h1')).toHaveText('De eventos a podcasts - alguns anos sem publicar');
+  });
+
+  test('switches from PT-BR post back to its EN version', async ({ page }) => {
+    await page.goto('/pt-br/general/2026/02/25/finally-writing-again.html');
+    await page.evaluate(() =>
+      document.getElementById('lang-switch')?.dispatchEvent(new Event('change'))
+    );
+    await page.waitForURL(/\/general\/2026\/02\/25\/finally-writing-again/);
+    await expect(page.locator('.post-header h1')).toHaveText('From events to podcasts - a quiet few years');
+  });
+});
+
 test.describe('Post detail page', () => {
   test('EN post opens with correct title and content', async ({ page }) => {
     await page.goto('/posts/');

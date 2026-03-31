@@ -5,6 +5,7 @@ title: "[TFS – Command-line] – Removendo Team Project"
 date: 2013-05-03
 categories: [coding]
 tags: [command-line, tfs]
+permalink: /coding/2013/05/03/tfs-command-line-removing-team-project.html
 ---
 
 Olá pessoal!
