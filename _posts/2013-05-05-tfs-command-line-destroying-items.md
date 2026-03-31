@@ -13,11 +13,11 @@ This week I needed to remove a specific file from my TFS repository. Unfortunate
 
 Below is an image showing the execution of the `tf destroy` command:
 
-![Running tf destroy](/assets/images/tfs-command-line-destruindo-elementos/destroy.png)
+![Running tf destroy](/assets/images/tfs-command-line-destroying-items/destroy.png)
 
 And here is a brief explanation of each parameter:
 
-![tf destroy parameters](/assets/images/tfs-command-line-destruindo-elementos/info.png)
+![tf destroy parameters](/assets/images/tfs-command-line-destroying-items/info.png)
 
 That's basically it — hope it was helpful!
 
