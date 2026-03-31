@@ -5,6 +5,7 @@ title: "Estratégias de Teste"
 date: 2013-06-01
 categories: [testing]
 tags: [testes]
+permalink: /testing/2013/06/01/testing-strategies/
 ---
 
 Hoje eu estava dando uma olhada em um manual dos ALM Rangers chamado [Better Unit Testing with Microsoft Fakes](http://vsartesttoolingguide.codeplex.com/releases/view/102290) que fala sobre o uso do Microsoft Fakes para testes no Visual Studio 2012.

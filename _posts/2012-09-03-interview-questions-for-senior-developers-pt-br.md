@@ -5,6 +5,7 @@ title: "Perguntas para entrevista de Seniores"
 date: 2012-09-03
 categories: [people]
 tags: [entrevista, scott hanselman, senior]
+permalink: /people/2012/09/03/interview-questions-for-senior-developers/
 ---
 
 ![Entrevista de emprego](/assets/images/interview-questions-for-senior-developers/entrevista-de-emprego-01.jpg)
