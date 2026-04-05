@@ -1,7 +1,7 @@
 ---
 lang: pt-br
 layout: post
-title: "Por que o seu diagrama organizacional está quebrando seu software"
+title: "Por que o seu diagrama organizacional pode estar quebrando seu software"
 date: 2025-03-16
 categories: [people]
 tags: [podcast, team-topologies, arquitetura, lei-de-conway, midia]
@@ -12,4 +12,4 @@ A Lei de Conway afirma que as organizações criam sistemas que espelham sua pr�
 
 Em uma conversa com Patrick Akil no podcast [Beyond Coding](https://www.youtube.com/@BeyondCoding) falamos sobre como a reestruturação de times afeta o software que eles constroem, os riscos de fazer isso errado, e minhas lições enquanto Gerente de Engenharia.
 
-<iframe style="display: block; margin: 0 auto; width: 80%; border-radius: 8px;" width="80%" height="380" src="https://www.youtube.com/embed/wi6-DnxAoQ0" title="Beyond Coding: Como Times e Arquitetura se Influenciam Mutuamente com André Borgonovo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe style="display: block; margin: 0 auto; width: 80%; border-radius: 8px;" width="80%" height="380" src="https://www.youtube.com/embed/wi6-DnxAoQ0" title="Por que o seu diagrama organizacional pode estar quebrando seu software com André Borgonovo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

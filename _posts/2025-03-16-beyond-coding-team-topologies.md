@@ -11,4 +11,4 @@ Conway's Law states that organisations design systems that mirror their own comm
 
 I joined Patrick Akil on the [Beyond Coding](https://www.youtube.com/@BeyondCoding) podcast for a conversation about how restructuring teams affects the software they build, the pitfalls of getting it wrong, and practical lessons from working through these changes as an Engineering Manager.
 
-<iframe style="display: block; margin: 0 auto; width: 80%; border-radius: 8px;" width="80%" height="380" src="https://www.youtube.com/embed/wi6-DnxAoQ0" title="Beyond Coding: How Teams and Architecture Influence Each Other with André Borgonovo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe style="display: block; margin: 0 auto; width: 80%; border-radius: 8px;" width="80%" height="380" src="https://www.youtube.com/embed/wi6-DnxAoQ0" title="Why Your Org Chart is Breaking Your Software with André Borgonovo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

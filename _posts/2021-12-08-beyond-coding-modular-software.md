@@ -7,7 +7,7 @@ categories: [coding]
 tags: [podcast, modular, software-design, midia]
 ---
 
-Modular software design is one of those topics that sounds straightforward in theory but gets surprisingly complex in practice. How do you define meaningful module boundaries? How do you prevent tight coupling from creeping back in over time? And how does the way you structure your code connect to the way you structure your teams?
+Modular software design is one of those topics that sounds straightforward in theory but gets surprisingly complex in practice. How do you define meaningful module interfaces? How do you prevent tight coupling from creeping back in over time? And how does the way you structure your code connect to the way you structure your teams?
 
 I had the chance to explore these questions with Patrick Akil on the [Beyond Coding](https://www.youtube.com/@BeyondCoding) podcast. We talked about the principles behind modular development, why it matters for long-term maintainability, and some of the real challenges engineering teams face when trying to apply it.
 
