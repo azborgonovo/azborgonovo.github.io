@@ -4,13 +4,15 @@ layout: post
 title: "Miroverse: Impact Network (iNet) Template"
 date: 2025-09-29
 categories: [coding]
-tags: [miro, template, impact-network, visualisation, midia]
+tags: [miro, template, impact-network, visualisation, media]
 ---
 
-An Impact Network (iNet) is a cause-and-effect diagram that maps how metrics, initiatives, and factors influence each other within a system. It comes from *Impact Intelligence* by Sriram Narayan — a book I'd strongly recommend to anyone working on product strategy, engineering effectiveness, or OKR design.
+I first stumbled upon Impact Intelligence through Martin Fowler's article [The Reformist CTO's Guide to Impact Intelligence](https://martinfowler.com/articles/impact-intel.html). Sriram Narayan who is the author has written a full book about the topic.
 
-The concept is powerful, but sketching an iNet from scratch on a blank canvas is often more friction than it needs to be. So I built a [Miro template on Miroverse](https://miro.com/templates/impact-network-inet/) to give teams a ready-made starting point: pre-styled node shapes, a legend, and example connections to get the structure going quickly.
+The *Impact Intelligence* book dives into measuring and amplifying the business impact of software engineering efforts, using practical frameworks to connect technical work with real outcomes.
 
-If you're not familiar with Impact Networks yet, the template itself includes a brief guide to the notation — you can use it to learn the concept while building your first diagram.
+One key tool from the book is the Impact Network (iNet), a cause-and-effect diagram that depicts how metrics, initiatives, and factors interact within a system. It can be an incredibly useful tool for strategizing on business and tech initiatives.
 
-**[Open the Impact Network (iNet) template on Miroverse →](https://miro.com/templates/impact-network-inet/)**
+I created a [template on Miroverse](https://miro.com/templates/impact-network-inet/) with pre-styled nodes, a legend, and sample connections to make it easier to create an iNet in Miro. It includes a quick guide to the notation, so you can learn as you build.
+
+Check it out: **[Impact Network (iNet) template on Miroverse →](https://miro.com/templates/impact-network-inet/)**
