@@ -11,4 +11,4 @@ Modular software design is one of those topics that sounds straightforward in th
 
 I had the chance to explore these questions with Patrick Akil on the [Beyond Coding](https://www.youtube.com/@BeyondCoding) podcast. We talked about the principles behind modular development, why it matters for long-term maintainability, and some of the real challenges engineering teams face when trying to apply it.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k1GUUublWxc" title="Beyond Coding: Modular Software Development with André Borgonovo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe style="display: block; margin: 0 auto; width: 80%; border-radius: 8px;" width="80%" height="380" src="https://www.youtube.com/embed/k1GUUublWxc" title="Beyond Coding: Modular Software Development with André Borgonovo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

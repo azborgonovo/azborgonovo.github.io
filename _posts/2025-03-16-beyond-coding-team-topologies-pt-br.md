@@ -12,4 +12,4 @@ A Lei de Conway afirma que as organizações criam sistemas que espelham sua pr�
 
 Me juntei a Patrick Akil no podcast [Beyond Coding](https://www.youtube.com/@BeyondCoding) para uma conversa sobre exatamente isso: como a reestruturação de times afeta o software que eles constroem, as armadilhas de fazer isso errado, e lições práticas de quem vivenciou essas mudanças como gestor de engenharia.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wi6-DnxAoQ0" title="Beyond Coding: Como Times e Arquitetura se Influenciam Mutuamente com André Borgonovo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe style="display: block; margin: 0 auto; width: 80%; border-radius: 8px;" width="80%" height="380" src="https://www.youtube.com/embed/wi6-DnxAoQ0" title="Beyond Coding: Como Times e Arquitetura se Influenciam Mutuamente com André Borgonovo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -12,4 +12,4 @@ Design de software modular é um daqueles temas que parece simples na teoria, ma
 
 Tive a oportunidade de explorar essas perguntas com Patrick Akil no podcast [Beyond Coding](https://www.youtube.com/@BeyondCoding). Conversamos sobre os princípios do desenvolvimento modular, por que ele importa para a manutenibilidade a longo prazo, e alguns dos desafios reais que times de engenharia enfrentam ao tentar aplicá-lo.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k1GUUublWxc" title="Beyond Coding: Desenvolvimento de Software Modular com André Borgonovo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe style="display: block; margin: 0 auto; width: 80%; border-radius: 8px;" width="80%" height="380" src="https://www.youtube.com/embed/k1GUUublWxc" title="Beyond Coding: Desenvolvimento de Software Modular com André Borgonovo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

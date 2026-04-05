@@ -4,7 +4,7 @@ layout: post
 title: "Leap into Tech: Diversidade no Mercado de Tecnologia"
 date: 2024-10-16
 categories: [people]
-tags: [podcast, diversidade, inclusão, mercado-de-tech, midia]
+tags: [podcast, diversidade, inclusão, mercado, midia]
 permalink: /people/2024/10/16/leap-into-tech-diversity/
 ---
 
