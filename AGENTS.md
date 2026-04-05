@@ -110,7 +110,27 @@ bundle exec jekyll serve
 npm test
 ```
 
-After making changes, validate by running `npm test` and checking that all Playwright tests pass.
+### Test strategy
+
+Tests should run only when changes can affect tested functionality. Avoid running Playwright for documentation updates or pure content changes.
+
+**What tests validate:**
+- `homepage.spec.ts` — homepage layout, nav structure, hero section, social links, footer (affected by layout/include/style changes)
+- `navigation.spec.ts` — language toggle, nav links, routing (affected by header changes)
+- `posts.spec.ts` — post list filtering, language isolation (affected by post layout or language filtering logic)
+- `liquid-expressions.spec.ts` — Liquid code blocks render literally in posts (affected only by specific posts with `{% raw %}` blocks)
+
+**When to run tests:**
+- Changes to `_layouts/`, `_includes/`, or `assets/css/`
+- Changes to `_config.yml` affecting routing or language handling
+- Posts with Liquid-syntax expressions or front-matter changes affecting filtering
+- Changes to test files
+
+**When to skip tests:**
+- Documentation or instruction files (*.md in root, except `_posts/`)
+- Post body text (prose only)
+- Image/static asset changes
+- CI/CD workflow changes
 
 ### Test naming convention
 
