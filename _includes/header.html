@@ -1,11 +1,13 @@
+<div class="top-bar">
+  <span class="top-bar-date">{{ site.time | date: "%B %d, %Y" }}</span>
+  <span class="top-bar-tagline">Software · Architecture · AI</span>
+</div>
 <header class="site-header">
   <div class="header-container">
-    <a class="site-title" href="{{ '/' | relative_url }}">
-      <span class="copilot-sparkle">{{ site.title }}</span>
-    </a>
+    <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
 
     <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="3" y1="6" x2="21" y2="6"></line>
         <line x1="3" y1="12" x2="21" y2="12"></line>
         <line x1="3" y1="18" x2="21" y2="18"></line>

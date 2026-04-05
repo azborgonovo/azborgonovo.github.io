@@ -1,7 +1,7 @@
 ---
 ---
 
-// Color Palette
+// Color Palette — GitHub dark theme
 $bg-primary: #0d1117;
 $bg-secondary: #161b22;
 $bg-tertiary: #21262d;
@@ -22,6 +22,9 @@ $border-highlight: #484f58;
 $link-color: #58a6ff;
 $link-hover: #a371f7;
 
+// Reading column width
+$reading-width: 720px;
+
 // Base styles
 * {
   box-sizing: border-box;
@@ -35,10 +38,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   background: $bg-primary;
   color: $text-primary;
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
   padding: 0;
   min-height: 100vh;
+  font-size: 1.0625rem;
 }
 
 // Typography
@@ -47,10 +51,11 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
   margin-top: 1.5em;
   margin-bottom: 0.5em;
+  line-height: 1.3;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   background: $accent-gradient;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -69,7 +74,7 @@ h3 {
 }
 
 p {
-  margin-bottom: 1em;
+  margin-bottom: 1.1em;
   color: $text-secondary;
 }
 
@@ -88,61 +93,54 @@ strong {
   color: $text-primary;
 }
 
-// Header
+// ─── Slim Header ────────────────────────────────────────────────────────────
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(22, 27, 34, 0.95);
+  background: rgba(13, 17, 23, 0.92);
   border-bottom: 1px solid $border-color;
-  padding: 1rem 0;
-  backdrop-filter: blur(10px);
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(90deg, rgba(163, 113, 247, 0.15) 0%, rgba(88, 166, 255, 0.1) 40%, transparent 100%);
-    pointer-events: none;
-  }
+  padding: 0.65rem 0;
+  backdrop-filter: blur(12px);
 }
 
 .header-container {
-  max-width: 1100px;
+  max-width: $reading-width;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 1.5rem;
 }
 
 .site-title {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 700;
+  letter-spacing: -0.01em;
   background: $accent-gradient;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-decoration: none;
+  flex-shrink: 0;
 
   &:hover {
     text-decoration: none;
-    opacity: 0.9;
+    opacity: 0.85;
   }
 }
 
 .site-nav {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
 
   a {
     color: $text-secondary;
+    font-size: 0.9375rem;
     font-weight: 500;
-    padding: 0.5rem 0;
+    padding: 0.25rem 0;
     position: relative;
     transition: color 0.2s ease;
 
@@ -157,7 +155,7 @@ strong {
       &::after {
         content: '';
         position: absolute;
-        bottom: 0;
+        bottom: -2px;
         left: 0;
         right: 0;
         height: 2px;
@@ -174,11 +172,11 @@ strong {
   background: none;
   border: none;
   color: $text-primary;
-  font-size: 1.5rem;
   cursor: pointer;
+  padding: 0.25rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .menu-toggle {
     display: block;
   }
@@ -191,6 +189,7 @@ strong {
     right: 0;
     background: $bg-secondary;
     flex-direction: column;
+    align-items: flex-start;
     padding: 1rem 2rem;
     gap: 0.5rem;
     border-bottom: 1px solid $border-color;
@@ -200,110 +199,120 @@ strong {
     }
 
     a {
-      padding: 0.75rem 0;
+      padding: 0.6rem 0;
     }
   }
 }
 
-// Main content
+// ─── Page content wrapper ────────────────────────────────────────────────────
 .page-content {
-  max-width: 1100px;
+  max-width: $reading-width;
   margin: 0 auto;
-  padding: 3rem 2rem;
+  padding: 3rem 2rem 4rem;
   min-height: calc(100vh - 200px);
+  animation: fadeIn 0.3s ease;
 }
 
-// Compact hero for two-column layout
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+// ─── Home: single-column centered layout ────────────────────────────────────
+.home-centered {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+// ─── Hero — tall, centered, large typography ─────────────────────────────────
 .hero-compact {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  padding: 1.5rem 0;
-  margin-bottom: 2rem;
+  text-align: center;
+  padding: 4rem 0 3rem;
   border-bottom: 1px solid $border-color;
+  gap: 1.75rem;
 
   .hero-info {
     h1 {
-      font-size: 2rem;
-      margin: 0 0 0.25rem;
+      font-size: 3.25rem;
+      margin: 0 0 0.6rem;
+      line-height: 1.15;
     }
 
     .tagline {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: $text-secondary;
       margin: 0;
+      max-width: 480px;
+      line-height: 1.6;
     }
   }
 
   .hero-badges {
     display: flex;
     gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
-// Two-column home grid
-.home-grid {
-  display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 2rem;
-  align-items: start;
-}
-
+// ─── Home main content ────────────────────────────────────────────────────────
 .home-main {
-  min-width: 0;
+  width: 100%;
 }
 
+// ─── Recent Posts — full-width section below main content ────────────────────
 .home-sidebar {
-  position: sticky;
-  top: 80px;
-}
+  width: 100%;
+  border-top: 1px solid $border-color;
+  padding-top: 2.5rem;
 
-.sidebar-section {
-  background: $bg-secondary;
-  border: 1px solid $border-color;
-  border-radius: 12px;
-  padding: 1.25rem;
-
-  h2 {
-    font-size: 1rem;
-    margin: 0 0 1rem;
-    padding: 0;
-    border: none;
-    color: $text-primary;
+  .sidebar-section {
+    h2 {
+      font-size: 1.375rem;
+      margin: 0 0 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid $border-color;
+      color: $text-primary;
+    }
   }
 }
 
 .sidebar-posts {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
 
   li {
-    padding: 0.75rem 0;
-    border-bottom: 1px solid $border-color;
-    margin: 0;
+    background: $bg-secondary;
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    transition: border-color 0.2s ease, transform 0.15s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
 
-    &:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    &:first-child {
-      padding-top: 0;
+    &:hover {
+      border-color: $border-highlight;
+      transform: translateY(-2px);
     }
 
     a {
-      display: block;
       font-size: 0.9375rem;
       font-weight: 500;
       color: $text-primary;
-      line-height: 1.4;
-      margin-bottom: 0.25rem;
+      line-height: 1.45;
 
       &:hover {
         color: $accent-purple;
+        text-decoration: none;
       }
     }
 
@@ -315,42 +324,23 @@ strong {
 }
 
 .view-all {
-  display: block;
-  margin-top: 1rem;
-  font-size: 0.875rem;
-  color: $accent-blue;
+  display: inline-block;
+  font-size: 0.9rem;
   font-weight: 500;
+  color: $accent-blue;
 
   &:hover {
     color: $accent-purple;
+    text-decoration: none;
   }
 }
 
-@media (max-width: 900px) {
-  .home-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .home-sidebar {
-    position: static;
-  }
-
-  .hero-compact {
-    flex-direction: column;
-    text-align: center;
-
-    .hero-info {
-      text-align: center;
-    }
-  }
-}
-
-// Badges
+// ─── Badges ───────────────────────────────────────────────────────────────────
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
+  gap: 0.45rem;
+  padding: 0.45rem 1rem;
   background: $bg-tertiary;
   border: 1px solid $border-color;
   border-radius: 2rem;
@@ -365,12 +355,24 @@ strong {
   }
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
   }
 }
 
-// Cards
+// ─── Post list page ───────────────────────────────────────────────────────────
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 0;
+  }
+}
+
+// ─── Cards ────────────────────────────────────────────────────────────────────
 .card {
   background: $bg-card;
   border: 1px solid $border-color;
@@ -405,28 +407,17 @@ strong {
   }
 }
 
-// Post list
-.post-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  li {
-    margin-bottom: 0;
-  }
-}
-
 .post-meta {
   font-size: 0.875rem;
   color: $text-muted;
 }
 
-// Sections
+// ─── Sections ─────────────────────────────────────────────────────────────────
 .section {
   margin-bottom: 3rem;
 }
 
-// Code blocks
+// ─── Code ─────────────────────────────────────────────────────────────────────
 pre, code {
   font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.875rem;
@@ -502,7 +493,7 @@ pre.agent-code {
   .err { color: #f85149; background: transparent; }
 }
 
-// Lists
+// ─── Lists ────────────────────────────────────────────────────────────────────
 ul, ol {
   padding-left: 1.5rem;
 
@@ -512,7 +503,7 @@ ul, ol {
   }
 }
 
-// Blockquotes
+// ─── Blockquotes ──────────────────────────────────────────────────────────────
 blockquote {
   border-left: 4px solid $accent-purple;
   margin: 1rem 0;
@@ -526,7 +517,7 @@ blockquote {
   }
 }
 
-// Tables
+// ─── Tables ───────────────────────────────────────────────────────────────────
 table {
   width: 100%;
   border-collapse: collapse;
@@ -553,7 +544,7 @@ table {
   }
 }
 
-// Horizontal rule
+// ─── Horizontal rule ──────────────────────────────────────────────────────────
 hr {
   border: none;
   height: 1px;
@@ -561,7 +552,7 @@ hr {
   margin: 2rem 0;
 }
 
-// Footer
+// ─── Footer ───────────────────────────────────────────────────────────────────
 .site-footer {
   background: $bg-secondary;
   border-top: 1px solid $border-color;
@@ -570,7 +561,7 @@ hr {
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: $reading-width;
   margin: 0 auto;
 }
 
@@ -589,8 +580,8 @@ hr {
     }
 
     svg {
-      width: 24px;
-      height: 24px;
+      width: 22px;
+      height: 22px;
     }
   }
 }
@@ -601,110 +592,7 @@ hr {
   margin: 0;
 }
 
-// Copilot sparkle effect
-.copilot-sparkle {
-  position: relative;
-  display: inline-block;
-
-  &::before {
-    content: '✨';
-    position: absolute;
-    top: -0.5rem;
-    right: -1rem;
-    font-size: 0.75rem;
-    animation: sparkle 2s ease-in-out infinite;
-  }
-}
-
-@keyframes sparkle {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
-}
-
-// Gradient text utility
-.gradient-text {
-  background: $accent-gradient;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-// Page transitions
-.page-content {
-  animation: fadeIn 0.3s ease;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-// Post page styles
-.post-header {
-  margin-bottom: 2rem;
-
-  h1 {
-    font-size: 2.5rem;
-    line-height: 1.2;
-  }
-
-  .post-meta {
-    margin-top: 0.5rem;
-  }
-}
-
-.post-content {
-  img {
-    max-width: 75%;
-    height: auto;
-    border-radius: 8px;
-    margin: 1rem auto;
-    display: block;
-  }
-}
-
-.post-footer {
-  margin-top: 2rem;
-}
-
-// Responsive images
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-// Selection
-::selection {
-  background: rgba(163, 113, 247, 0.3);
-  color: $text-primary;
-}
-
-// Scrollbar
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: $bg-primary;
-}
-
-::-webkit-scrollbar-thumb {
-  background: $border-color;
-  border-radius: 4px;
-
-  &:hover {
-    background: $border-highlight;
-  }
-}
-
-// Language Toggle Switch
+// ─── Language Toggle ──────────────────────────────────────────────────────────
 .lang-toggle {
   display: flex;
   align-items: center;
@@ -782,7 +670,7 @@ img {
   outline-offset: 2px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .lang-toggle {
     border-left: none;
     padding-left: 0;
@@ -791,7 +679,43 @@ img {
   }
 }
 
-// Agent card — styled like an AI agent configuration file
+// ─── Post page ────────────────────────────────────────────────────────────────
+.post-header {
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid $border-color;
+
+  h1 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-top: 0;
+  }
+
+  .post-meta {
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+  }
+}
+
+.post-content {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem auto;
+    display: block;
+  }
+}
+
+.post-footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+}
+
+// ─── Agent card ───────────────────────────────────────────────────────────────
 .agent-card {
   background: $bg-secondary;
   border: 1px solid $border-color;
@@ -906,7 +830,43 @@ img {
   }
 }
 
-// Print styles
+// ─── Misc utilities ───────────────────────────────────────────────────────────
+.gradient-text {
+  background: $accent-gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+::selection {
+  background: rgba(163, 113, 247, 0.3);
+  color: $text-primary;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-primary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $border-color;
+  border-radius: 4px;
+
+  &:hover {
+    background: $border-highlight;
+  }
+}
+
+// ─── Print ────────────────────────────────────────────────────────────────────
 @media print {
   body {
     background: white;
