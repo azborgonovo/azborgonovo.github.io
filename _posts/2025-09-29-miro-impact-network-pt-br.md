@@ -4,14 +4,16 @@ layout: post
 title: "Miroverse: Template de Impact Network (iNet)"
 date: 2025-09-29
 categories: [coding]
-tags: [miro, template, impact-network, visualização, midia]
+tags: [miro, template, impact-network, visualização, mídia]
 permalink: /coding/2025/09/29/miro-impact-network/
 ---
 
-Um Impact Network (iNet) é um diagrama de causa e efeito que mapeia como métricas, iniciativas e fatores se influenciam dentro de um sistema. O conceito vem do livro *Impact Intelligence* de Sriram Narayan — uma leitura que recomendo bastante para quem trabalha com estratégia de produto, eficácia de engenharia ou design de OKRs.
+Descobri *Impact Intelligence* através do artigo de Martin Fowler [The Reformist CTO's Guide to Impact Intelligence](https://martinfowler.com/articles/impact-intel.html). Sriram Narayan, o autor, escreveu um livro completo sobre o tema.
 
-O conceito é poderoso, mas desenhar um iNet do zero em uma tela em branco pode gerar mais atrito do que o necessário. Por isso criei um [template no Miroverse](https://miro.com/templates/impact-network-inet/) para dar às equipes um ponto de partida pronto: formas de nós pré-estilizadas, uma legenda e conexões de exemplo para estruturar o diagrama rapidamente.
+O livro *Impact Intelligence* explora como medir e amplificar o impacto de negócios dos esforços de tecnologia, usando frameworks práticos para conectar o trabalho técnico com resultados reais.
 
-Se você ainda não conhece os Impact Networks, o próprio template inclui um guia resumido da notação — você pode usar para aprender o conceito enquanto constrói seu primeiro diagrama.
+Uma ferramenta-chave do livro é o Impact Network (iNet), um diagrama de causa e efeito que mostra como métricas e iniciativas interagem dentro de um sistema. É uma ferramenta incrivelmente útil para estratégia de negócios e iniciativas tecnológicas.
 
-**[Abrir o template Impact Network (iNet) no Miroverse →](https://miro.com/templates/impact-network-inet/)**
+Criei um [template no Miroverse](https://miro.com/templates/impact-network-inet/) com elementos pré-estilizados, uma legenda e diagramas de exemplo para facilitar a criação de um iNet no Miro. Inclui um guia rápido da notação, então você pode aprender enquanto constrói seu primeiro diagrama.
+
+Confira: **[Template Impact Network (iNet) no Miroverse →](https://miro.com/templates/impact-network-inet/)**
