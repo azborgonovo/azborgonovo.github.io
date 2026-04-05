@@ -1,7 +1,12 @@
+<div class="top-bar">
+  <span class="top-bar-date">{{ site.time | date: "%B %d, %Y" }}</span>
+  <span class="top-bar-tagline">Software · Architecture · AI · Agile</span>
+</div>
+
 <header class="site-header">
   <div class="header-container">
     <a class="site-title" href="{{ '/' | relative_url }}">
-      <span class="copilot-sparkle">{{ site.title }}</span>
+      {{ site.title }}
     </a>
 
     <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
@@ -21,7 +26,6 @@
       <a href="{{ '/posts/' | relative_url }}" {% if page.url == '/posts/' %}class="active"{% endif %}>Posts</a>
       {% endif %}
 
-      <!-- Language Toggle Switch -->
       <div class="lang-toggle" aria-label="Toggle language">
         <span class="lang-label {% if site.active_lang == 'en' %}active{% endif %}">EN</span>
         <label class="toggle-switch">
@@ -37,7 +41,6 @@
         </label>
         <span class="lang-label {% if site.active_lang == 'pt-br' %}active{% endif %}">PT</span>
       </div>
-
     </nav>
   </div>
 </header>
