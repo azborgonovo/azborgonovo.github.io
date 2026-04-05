@@ -38,6 +38,16 @@
           window.location.href = langSwitch.dataset.target;
         });
       }
+
+      // Scroll-triggered header: transparent over hero, solid after scroll
+      const siteHeader = document.querySelector('.site-header');
+      if (siteHeader) {
+        const onScroll = () => {
+          siteHeader.classList.toggle('scrolled', window.scrollY > 60);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
     </script>
   </body>
 </html>
