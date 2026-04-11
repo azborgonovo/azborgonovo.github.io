@@ -43,7 +43,7 @@ test.describe('English homepage', () => {
   });
 
   test('footer shows "Built with Jekyll"', async ({ page }) => {
-    await expect(page.locator('.footer-text')).toContainText('Built with Jekyll');
+    await expect(page.locator('.footer-text').first()).toContainText('Built with Jekyll');
   });
 });
 
@@ -76,6 +76,6 @@ test.describe('PT-BR homepage', () => {
   });
 
   test('footer shows "Feito com Jekyll"', async ({ page }) => {
-    await expect(page.locator('.footer-text')).toContainText('Feito com Jekyll');
+    await expect(page.locator('.footer-text').first()).toContainText('Feito com Jekyll');
   });
 });
