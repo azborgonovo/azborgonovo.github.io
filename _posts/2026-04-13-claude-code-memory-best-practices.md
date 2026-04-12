@@ -7,35 +7,37 @@ categories: [ai]
 tags: [claude-code, memory, claude-md, agents-md, best-practices]
 ---
 
-While learning Claude Code, I ran into a question that isn't immediately obvious: when Claude saves something to its auto-memory, should you commit that to git?
+I have been using Claude Code for a while now, and I have run into the following question recently: when Claude saves something to its auto-memory, should you commit that to git?
 
-Short answer: no — and you shouldn't need to.
+The short answer is: no - and you shouldn't need to.
 
 ## How Claude Code memory works
 
 Claude Code has two distinct memory layers:
 
-**Auto-memory** (`~/.claude/projects/<repo>/memory/`) — Claude writes notes to itself as it works: things it learned about your project, conventions it picked up, corrections you gave it. This lives on your machine, outside the repository. It is never committed to git.
+**Auto-memory** (`~/.claude/projects/<repo>/memory/`) is where Claude writes notes to itself as it works: things it learned about your project, conventions, corrections you gave it. This lives on your machine, outside the repository. It is never committed to git.
 
-**Project memory** (`CLAUDE.md` / `AGENTS.md`) — instructions you write explicitly for Claude (and other AI tools). These live inside the repo, are versioned with git, and are loaded at the start of every session.
+**Project memory** (`CLAUDE.md` / `AGENTS.md`) are instructions you write explicitly for Claude (and other AI tools). These live inside the repo, are versioned with git, and are loaded at the start of every session.
 
 ## The rule of thumb
 
-> If a rule matters for the project, put it in `CLAUDE.md`. If it's a personal preference for how Claude behaves with *you*, auto-memory is fine.
+> If a rule matters for the project, put it in `AGENTS.md`. If it's a personal preference for how Claude behaves with *you*, auto-memory is fine.
 
 The distinction is: *would another developer or AI agent need this rule?* If yes, it belongs in the repo.
 
 ## A concrete example
 
-Today Claude correctly noted that PT-BR post variants in this blog require a `permalink` front matter field so jekyll-polyglot can pair language versions for the language toggle. Claude saved that to auto-memory.
+Yesterday I asked Claude to save a rule to always generate a `permalink` front matter field when creating new posts together with me. Claude saved that to auto-memory.
 
-But that's a project rule — it affects anyone (or any AI) working on this repo. So I moved it to `AGENTS.md` and deleted the memory entry. Now it's versioned, visible in code review, and available to every tool.
+But after questioning whether that was the right place, we concluded it's a project rule — it affects anyone (or any AI) working on this repo. So we moved it to `AGENTS.md` and deleted the memory entry. Now it's versioned, visible in code review, and available to every tool.
 
-## A few other things worth knowing
+## A few other things to pay attention to
 
-- `CLAUDE.md` counts against your context window every session — keep it concise (50–200 lines is the practical guidance).
-- Auto-memory has a 200-line / 25 KB cap on what gets loaded at session start.
+- Keep `AGENTS.md` under 200 lines — the [official docs](https://code.claude.com/docs/en/best-practices) warn that longer files consume more context and instruction adherence measurably drops.
 - You can disable auto-memory entirely with `CLAUDE_CODE_DISABLE_AUTO_MEMORY=1` if you prefer to manage everything manually.
-- If your repo uses `AGENTS.md` (the OpenAI Codex convention), you can have `CLAUDE.md` import it so both tools read the same instructions without duplication.
+- If your repo uses `AGENTS.md`, you can have `CLAUDE.md` import it so both tools read the same instructions without duplication.
 
-The takeaway: use auto-memory for ephemeral, personal context. Use `CLAUDE.md` for anything that should outlive your current machine or onboard the next contributor.
+## References
+
+- [How Claude remembers your project](https://code.claude.com/docs/en/memory) 
+- [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices)
