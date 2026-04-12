@@ -2,7 +2,7 @@
 lang: en
 layout: post
 title: "Claude Code Memory: Where Rules Actually Belong"
-date: 2026-04-12
+date: 2026-04-13
 categories: [ai]
 tags: [claude-code, memory, claude-md, agents-md, best-practices]
 ---

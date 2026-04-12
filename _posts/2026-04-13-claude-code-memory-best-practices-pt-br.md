@@ -2,7 +2,7 @@
 lang: pt-br
 layout: post
 title: "Memória do Claude Code: Onde as Regras Realmente Pertencem"
-date: 2026-04-12
+date: 2026-04-13
 categories: [ai]
 tags: [claude-code, memória, claude-md, agents-md, boas-práticas]
 permalink: /ai/2026/04/12/claude-code-memory-best-practices/
