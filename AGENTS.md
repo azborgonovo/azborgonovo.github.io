@@ -76,6 +76,12 @@ tags: [tag1, tag2]
 
 **PT-BR pages** in `pt-br/` must include `lang: pt-br` and `permalink:` matching their EN counterpart.
 
+**PT-BR posts** must include a `permalink` front matter field matching the EN post's generated URL (`/<category>/YYYY/MM/DD/<slug>/`). jekyll-polyglot uses this to pair language versions; without it, the language toggle on a post page cannot navigate to the correct counterpart. The EN post does not need an explicit permalink. Example:
+
+```yaml
+permalink: /coding/2026/04/12/modularity-review-claude-code/
+```
+
 ### Liquid-syntax content in posts
 
 Jekyll processes all `.md` files through Liquid before rendering. Any `{{ }}` or `{% %}` patterns in post body text or fenced code blocks are interpreted as Liquid tags — if the variable doesn't exist, it renders as empty string. Wrap such content in `{% raw %}` / `{% endraw %}` tags to display it literally:
