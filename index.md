@@ -16,31 +16,34 @@ lang: en
       <span class="filename">.github/andre-borgonovo.agent.md</span>
     </div>
     <div class="code-content">
-<pre class="agent-code"><span style="color:#30363d">---</span>
-<span style="color:#58a6ff">name:</span> <span style="color:#ffa657">André Borgonovo</span>
-<span style="color:#58a6ff">description:</span> <span style="color:#ffa657">Software developer, Architect, Tech lead</span>
-<span style="color:#58a6ff">location:</span> <span style="color:#ffa657">Netherlands | Remote</span>
-<span style="color:#58a6ff">version:</span> <span style="color:#ffa657">2026.3</span>
-<span style="color:#30363d">---</span>
+<pre class="agent-code"><span class="cw-sep">---</span>
+<span class="cw-key">name:</span> <span class="cw-value">André Borgonovo</span>
+<span class="cw-key">description:</span> <span class="cw-value">Software developer, Architect, Tech lead</span>
+<span class="cw-key">location:</span> <span class="cw-value">Netherlands | Remote</span>
+<span class="cw-key">version:</span> <span class="cw-value">2026.3</span>
+<span class="cw-sep">---</span>
 
-<span style="color:#a371f7;font-weight:600"># Instructions</span>
+<span class="cw-section"># Instructions</span>
 
-<span style="color:#7ee787;font-style:italic">&gt; What I do and how I can help</span>
+<span class="cw-comment">&gt; What I do and how I can help</span>
 
 I help product teams build better software faster through intentional architecture, sustainable practices, and a healthy engineering culture. Passionate about turning complexity into clarity, and clarity into valuable software.
 
-<span style="color:#a371f7;font-weight:600"># Craft</span>
+<span class="cw-section"># Craft</span>
 
-<span style="color:#7ee787;font-style:italic">&gt; Areas I care about and love working with</span>
+<span class="cw-comment">&gt; Areas I care about and love working with</span>
 
-<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Software Architecture</span> High cohesion/Low coupling through API design, Diagramming (C4), Distributed systems, Team topologies
-<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Agile</span> Customer satisfaction, Continous delivery, Technical excellence
-<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Modern Engineering</span> Release pipelines, Automated testing, DevOps, Cloud-native
+<span class="cw-key">-</span> <span class="cw-badge">Software Architecture</span> High cohesion/Low coupling through API design, Diagramming (C4), Distributed systems, Team topologies
+<span class="cw-key">-</span> <span class="cw-badge">Agile</span> Customer satisfaction, Continous delivery, Technical excellence
+<span class="cw-key">-</span> <span class="cw-badge">Modern Engineering</span> Release pipelines, Automated testing, DevOps, Cloud-native
 
-<span style="color:#a371f7;font-weight:600"># Hobbies</span>
+<span class="cw-section"># Hobbies</span>
 
-<span style="color:#7ee787;font-style:italic">&gt; When I'm not doing software</span>
+<span class="cw-comment">&gt; When I'm not doing software</span>
 
-<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Family & friends</span> Having a good time with loved ones around board games or cards
-<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Meditation</span> Observing the present and exploring the self
-<span style="color:#58a6ff">-</span> <span style="color:#ffa657;background:rgba(255,166,87,0.1);padding:0 4px;border-radius:3px">Reading</span> Expanding ideas via podcasts/books or enjoying an exciting fantasy book
+<span class="cw-key">-</span> <span class="cw-badge">Family & friends</span> Having a good time with loved ones around board games or cards
+<span class="cw-key">-</span> <span class="cw-badge">Meditation</span> Observing the present and exploring the self
+<span class="cw-key">-</span> <span class="cw-badge">Reading</span> Expanding ideas via podcasts/books or enjoying an exciting fantasy book</pre>
+    </div>
+  </div>
+</section>
