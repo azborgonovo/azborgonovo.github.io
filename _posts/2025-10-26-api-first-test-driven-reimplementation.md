@@ -16,8 +16,8 @@ So I did. Here is what I used, what came out, and what I ran into along the way.
 The starting point is a .NET 9 gRPC service with several services defined across seven proto files, and a component test suite with around 50 tests running against a real PostgreSQL instance via [TestContainers](https://testcontainers.com/guides/getting-started-with-testcontainers-for-dotnet/). I deleted all the implementation code, kept the proto files and the tests, and set up GitHub Copilot in VS Code to do the work.
 
 The rules were simple:
-- Proto files cannot be modified - they are the API contract
-- Test assertions cannot be modified - they are the acceptance criteria
+- Proto files cannot be modified (they are the API contract)
+- Test assertions cannot be modified (they are the acceptance criteria)
 
 The proto contract defines each operation precisely:
 
@@ -82,7 +82,7 @@ public override async Task<AddSubjectResponse> AddSubject(
 }
 ```
 
-This pattern — business logic returns `Result`, gRPC layer maps failures to status codes — was applied consistently across all services without me asking for it explicitly. The constitution's principle of using the Result pattern was enough for Copilot to infer the structure.
+This pattern (business logic returns `Result`, gRPC layer maps failures to status codes) was applied consistently across all services without me asking for it explicitly. The constitution's principle of using the Result pattern was enough for Copilot to infer the structure.
 
 ## The challenges
 
