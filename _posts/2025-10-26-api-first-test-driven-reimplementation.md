@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: post
-title: "API-First, Test-First: Guardrails for AI-Assisted Development"
+title: "Contract-First, Test-Driven: Guardrails for AI-Assisted Development"
 date: 2025-10-26
 categories: [coding]
 tags: [copilot, tdd, grpc, protobuf, speckit, api-first, ai-assisted]
@@ -39,7 +39,7 @@ message AddSubjectResponse {
 }
 ```
 
-And the tests started their life skipped, with one-by-one unskipped as each service is implemented:
+The tests started their life skipped, unskipped one-by-one as each service got implemented:
 
 ```csharp
 [Fact(Skip = "Not implemented yet")]
@@ -58,13 +58,11 @@ Turning a test from red to green is a clear, unambiguous milestone. There is no 
 
 Before asking Copilot to write a single line of implementation, I used [GitHub SpecKit](https://github.com/github/spec-kit) to structure the planning. SpecKit is a toolkit for Spec-Driven Development that walks you through four stages: a **constitution** (governing principles), a **specification** (what and why), a **plan** (technical approach), and a **task breakdown**.
 
-Running the full workflow in sequence generated a substantial amount of documentation. It was thorough to the point of feeling like [big-design upfront](https://en.wikipedia.org/wiki/Big_design_up_front) and *waterfall* planning. This was an experiment, so I didn't read all of it carefully. The constitution looked interesting giving Copilot six principles that served as a clear north star throughout implementation, including the immutability of the proto files and the Result pattern for error handling.
+Running the full workflow in sequence generated a substantial amount of documentation to the point of feeling like [big-design upfront](https://en.wikipedia.org/wiki/Big_design_up_front) and *waterfall* planning. This was an experiment, so I didn't read all of it carefully. The good part: the constitution provided six principles that gave Copilot a clear north star throughout implementation, including the immutability of the proto files and the Result pattern for error handling.
 
 ## The result
 
-Several services implemented in a matter of days, all tests passing. Copilot produced a correctly layered .NET service with dependency injection, EF Core repositories, Result pattern applied consistently across all business services, gRPC status codes mapped appropriately. The code is clean and coherent.
-
-Copilot generated well-structured code throughout. Each gRPC service delegates to a business service that returns a `Result` (via [FluentResults](https://github.com/altmann/FluentResults)), and the gRPC layer translates that into the appropriate status code:
+All services implemented in a matter of days, all tests passing. Copilot produced a correctly layered .NET service with dependency injection, EF Core repositories, and gRPC status codes that were mapped appropriately. Each gRPC service delegates to a business service that returns a `Result` (via [FluentResults](https://github.com/altmann/FluentResults)), and the gRPC layer translates that into the appropriate status code:
 
 ```csharp
 public override async Task<AddSubjectResponse> AddSubject(
@@ -101,10 +99,10 @@ It helped, but did not fully solve it. Copilot still got stuck, looping through 
 
 The other recurring challenge is Copilot trying to modify the tests. It happened more than once. Each time I had to reaffirm: the tests are the spec and SHALL not be changed.
 
-## My take aways
+## My takeaways
 
-API-first and test-first have been and continue to be good engineering practices. In the context of AI-assisted development, they give solid constraints to give clear feedback to the model's workflow.
+In the context of AI-assisted development, contract-first and test-driven design (TDD) give AI models clear and verifiable boundaries.
 
-I am still unsure about SpecKit's value. It forces upfront clarity on principles and helps guiding GenAI to one-shot features. I force brute a naive approach first and it was a complete failure.
+SpecKit's value is something I'm still working out. The constitution made a real difference. Before setting up the constraints and running SpecKit, I tried a naive approach to just prompt Copilot with no structure and it was a complete failure. The guardrails matter.
 
-The core lesson: AI is surprisingly good and and fast at generating code. The basic engineering practices remain fundamental.
+The core lesson: AI is surprisingly good and fast at generating code. The basic engineering practices remain fundamental.
