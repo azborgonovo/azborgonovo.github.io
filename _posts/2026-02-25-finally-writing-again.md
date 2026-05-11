@@ -30,3 +30,7 @@ As John Udell challenged in his post: [Too busy to blog? Count your keystrokes](
 Writing is one of the best ways to consolidate learning. Every time I solve an interesting problem or discover something new, I want to capture that knowledge and share it, both for others who might run into the same challenges and for my future self.
 
 Welcome back: to both of us!
+
+---
+
+**Update:** After writing this first post on this new website, I decided to import my old posts (some that were already public, others that had stayed private) into this new home. That is why you may find posts here that are older than this one.

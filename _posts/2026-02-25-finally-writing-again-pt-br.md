@@ -31,3 +31,7 @@ Como John Udell provocou em seu post: [Too busy to blog? Count your keystrokes](
 Escrever é uma das melhores formas de consolidar o aprendizado. Cada vez que resolvo um problema interessante ou descubro algo novo, quero registrar esse conhecimento e compartilhá-lo - tanto para quem possa enfrentar os mesmos desafios quanto para o meu eu do futuro.
 
 Bem-vindo de volta! A nós dois!
+
+---
+
+**Atualização:** Após publicar este primeiro post neste novo site, decidi importar os meus posts antigos (alguns que já eram públicos, outros que tinham ficado privados) para cá. É por isso que você pode encontrar posts aqui mais antigos do que este.
