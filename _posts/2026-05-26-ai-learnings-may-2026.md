@@ -5,6 +5,7 @@ title: "AI Learnings: May/2026 version"
 date: 2026-05-26
 categories: [ai]
 tags: [ai, learnings]
+permalink: /ai/2026/05/26/ai-learnings-may-2026/
 ---
 
 We are almost past the first half of 2026 and I want to take a moment to share the learning sources that have been most useful to me and may be useful to others.
