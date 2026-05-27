@@ -13,7 +13,7 @@ permalink: /
         <span class="dot yellow"></span>
         <span class="dot green"></span>
       </div>
-      <span class="filename">.github/andre-borgonovo.agent.md</span>
+      <span class="filename">andre-borgonovo.agent.md</span>
     </div>
     <div class="code-content">
 <pre class="agent-code"><span class="cw-sep">---</span>
