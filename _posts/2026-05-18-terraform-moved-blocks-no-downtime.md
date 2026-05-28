@@ -7,9 +7,9 @@ categories: [coding]
 tags: [aws, terraform, infrastructure, eks, iam]
 ---
 
-While adding SNS publish permissions to `checkout-api`, I cleaned up its Terraform resource definition along the way. The IAM role had been created conditionally using `count` — an old pattern that made sense when S3 access was optional, but now that the role is always needed, the condition was dead weight.
+While adding SNS publish permissions to the `checkout-api` [as part of a FIFO SNS/SQS fanout setup](/coding/2026/05/18/fifo-sns-sqs-eks-terraform/), I cleaned up its Terraform resource definition along the way. The IAM role had been created conditionally using `count` — an old pattern that made sense when S3 access was optional, but now that the role is always needed, the condition was no longer applicable.
 
-Removing `count` is a one-line change in HCL. But Terraform tracks resources by their state address, and removing `count` changes that address from `aws_iam_role.checkout_api[0]` to `aws_iam_role.checkout_api`. Without telling Terraform about this, it plans to destroy the existing role and create a new one — downtime and broken pods in production.
+Removing `count` is a one-line change in HCL. But Terraform tracks resources by their state address, and removing `count` changes that address from `aws_iam_role.checkout_api[0]` to `aws_iam_role.checkout_api`. Without telling Terraform about this, it plans to destroy the existing role and create a new one. This means downtime and broken pods in production.
 
 The fix is `moved` blocks.
 
@@ -46,7 +46,7 @@ resource "aws_eks_pod_identity_association" "checkout_api" {
 
 ## The Refactored Code
 
-Removing `count` — and renaming the policy resource to reflect its broader purpose now that it covers more than just S3:
+Removing `count` — and renaming the policy resource from `checkout_api` to `checkout_api_s3` to make its scope explicit now that the role will have multiple inline policies:
 
 ```hcl
 resource "aws_iam_role" "checkout_api" {
