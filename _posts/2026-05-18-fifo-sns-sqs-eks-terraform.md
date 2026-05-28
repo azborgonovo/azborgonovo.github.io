@@ -8,7 +8,7 @@ tags: [aws, terraform, sns, sqs, eks, iam, infrastructure]
 mermaid: true
 ---
 
-When a service publishes an event, other services often need to react to it — independently, asynchronously, and without the publisher knowing who's listening. AWS SNS + SQS is the standard fanout pattern for this. When you need ordered, exactly-once delivery, the FIFO variants are the right choice.
+When a service publishes an event, other services often need to react to it — independently, asynchronously, and without the publisher knowing who's listening. [SNS](https://aws.amazon.com/sns/) + [SQS](https://aws.amazon.com/sqs/) is the AWS standard fanout pattern for this. The [FIFO](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) variants are the right choice when you need ordered, exactly-once delivery.
 
 This post walks through provisioning a FIFO SNS/SQS fanout infrastructure on EKS using Terraform, with subscription filter policies and IAM permissions wired via EKS Pod Identity.
 
@@ -24,9 +24,13 @@ flowchart LR
 
 `checkout-api` publishes `order-placed` events. `fulfillment-service` consumes them — but only for orders placed through online or app channels. The filter policy is what makes this extensible: a future `store-service` could subscribe to the same topic with `channel = in-store`, receiving only its relevant events with no changes to the publisher or the existing consumer.
 
-## Prerequisite: EKS Pod Identity
+## Assumptions
 
-All IAM permissions here are granted via **EKS Pod Identity**, the modern recommended approach for giving Kubernetes pods access to AWS resources. Each service gets its own IAM role, bound to its Kubernetes service account. The Terraform below assumes this is already configured.
+This post assumes an environment where:
+
+- Services run as pods on **EKS**, with Kubernetes service accounts already created for each workload (`checkout-api` and `fulfillment-service`).
+- **EKS Pod Identity** is configured, binding each service account to its own IAM role (`aws_iam_role.checkout_api` and `aws_iam_role.fulfillment_service`).
+- There is an established way to **apply and manage Terraform state** with sufficient IAM permissions to create and manage SNS topics, SQS queues, and IAM roles and policies.
 
 ## SNS FIFO Topic
 
