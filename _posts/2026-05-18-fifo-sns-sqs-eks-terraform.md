@@ -8,7 +8,7 @@ tags: [aws, terraform, sns, sqs, eks, iam, infrastructure]
 mermaid: true
 ---
 
-When a service publishes an event, other services often need to react to it — independently, asynchronously, and without the publisher knowing who's listening. [SNS](https://aws.amazon.com/sns/) + [SQS](https://aws.amazon.com/sqs/) is the AWS standard fanout pattern for this. The [FIFO](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) variants are the right choice when you need ordered, exactly-once delivery.
+When a service publishes an event, other services often need to react to it — independently, asynchronously, and without the publisher knowing who's listening. [SNS](https://aws.amazon.com/sns/) + [SQS](https://aws.amazon.com/sqs/) is the AWS standard fanout pattern for this. The [FIFO](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) variants are the right choice when you need ordered, exactly-once processing.
 
 This post walks through provisioning a FIFO SNS/SQS fanout infrastructure on EKS using Terraform, with subscription filter policies and IAM permissions wired via EKS Pod Identity.
 
@@ -46,6 +46,8 @@ The `.fifo` suffix is required by AWS — naming validation will reject the reso
 
 `content_based_deduplication = true` means SNS generates the deduplication ID from the message body, so publishers don't need to supply a `MessageDeduplicationId` explicitly. This means that two messages with identical bodies published within the 5-minute deduplication window are silently deduplicated and only one is delivered.
 
+Publishers must include a `MessageGroupId` in every `sns:Publish` call — this is required by all FIFO topics and is not optional. The group ID determines the ordering scope: messages with the same group ID are delivered in the order they were published, and a blocked message in one group does not affect delivery in other groups.
+
 ## SQS FIFO Queue and DLQ
 
 ```hcl
@@ -66,11 +68,18 @@ resource "aws_sqs_queue" "fulfillment_order_placed" {
 }
 ```
 
-`visibility_timeout_seconds` should be set to at least 6× your consumer's average processing time. Once a message is received, SQS hides it from other consumers for this duration. If processing takes longer than the timeout, SQS redelivers the message — burning a retry count and risking duplicate processing.
+Neither queue sets `content_based_deduplication`. SNS forwards the deduplication ID it generates to the SQS queue, so the queue deduplicates using the SNS-provided ID without needing its own content-based hashing.
+
+`visibility_timeout_seconds` applies to the entire batch from the moment `ReceiveMessage` returns. The right value depends on how your consumer processes messages:
+
+- **Serial batch processing**: use `NumberOfMessagesReceived × MaximumExpectedProcessingTime`. If you receive 10 messages and each can take up to 5 seconds, the timeout must cover all 50 seconds.
+- **Parallel batch processing**: use `MaximumExpectedProcessingTime` since all messages in the batch are processed concurrently.
+
+If processing takes longer than the timeout, SQS redelivers the messages, burning retry counts and risking duplicate processing.
 
 `maxReceiveCount = 3` is a deliberate choice in a FIFO queue, not just a retry budget. FIFO queues guarantee ordered delivery within a message group: if the first message in a group fails and stays in the queue, no subsequent message in that group is delivered until it's processed or dead-lettered. Too many retries on a poison message means the entire message group is blocked. Three retries cover transient failures without creating long blockages.
 
-`message_retention_seconds = 1209600` — 14 days is the maximum SQS retention period, and since AWS does not charge for SQS storage, there's no cost reason to set it lower. The longer window gives you more time to investigate and replay failed messages before they're gone.
+`message_retention_seconds = 1209600` sets the DLQ to the maximum 14-day retention period. Since AWS does not charge for SQS storage, there's no cost reason to set it lower on the DLQ — the longer window gives you more time to investigate and replay failed messages before they're gone.
 
 ## Queue Policy
 
@@ -169,6 +178,6 @@ Each role is bound to its Kubernetes service account via `aws_eks_pod_identity_a
 
 ## Wrapping Up
 
-The full pattern presented in this post gives you ordered, exactly-once event delivery with clean decoupling between services.
+The full pattern presented in this post gives you ordered, exactly-once event processing with clean decoupling between services.
 
 The filter policy enables consumers to route only relevant messages without the publisher having to care about who's listening.
