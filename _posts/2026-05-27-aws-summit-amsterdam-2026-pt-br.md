@@ -21,7 +21,7 @@ A keynote abriu com uma única pergunta provocadora: **"Por que não?"** — e e
 Karen Van De Woestyne (COO da KBC) estava entre as palestrantes, e a perspectiva europeia foi central: o Benelux foi destacado como estando entre os melhores desempenhos entre os países da UE, e o impacto esperado da IA no PIB europeu foi discutido.
 
 No lado dos produtos, a keynote destacou:
-- **Amazon Q** — apresentado como uma ferramenta para empoderar não-desenvolvedores
+- **Amazon Quick** — apresentado como uma ferramenta para empoderar não-desenvolvedores
 - **AWS Transform** — focado em modernização de sistemas
 - **Kiro** — a aposta da AWS em desenvolvimento orientado a especificações, com bastante tempo de palco
 - **AWS Lambda Durable Functions** — anunciado como uma adição relevante
@@ -38,11 +38,11 @@ Formei equipe com Sajad (da Good Habits) e dois colegas da Tata Consultancy. Com
 
 ## Workshop: Intelligently Automating Cloud Operations
 
-O workshop da tarde, conduzido por Nishant Gupta (Senior Delivery Consultant na AWS), voltou o foco para operações práticas de cloud. A sessão percorreu a conexão de múltiplas fontes de dados da AWS via buckets S3 e o uso do Amazon Q como agente de chat interativo capaz de consultar diferentes fontes de forma inteligente.
+O workshop da tarde, conduzido por Nishant Gupta (Senior Delivery Consultant na AWS), voltou o foco para operações práticas de cloud. A sessão percorreu a conexão de múltiplas fontes de dados da AWS via buckets S3 e o uso do Amazon Quick como agente de chat interativo capaz de consultar diferentes fontes de forma inteligente.
 
 Os tópicos incluíram AWS Health, Trusted Advisor, Amazon EventBridge, AWS Lambda e GenAI/ML para automação de operações em cloud.
 
-Uma coisa que pesquisei depois: o Amazon Q usa **GraphRAG** internamente. É uma técnica promissora que vale acompanhar para quem está desenvolvendo experiências de usuário baseadas em IA.
+Uma coisa que pesquisei depois: o Amazon Quick usa **GraphRAG** internamente. É uma técnica promissora que vale acompanhar para quem está desenvolvendo experiências de usuário baseadas em IA.
 
 ## O verdadeiro aprendizado
 

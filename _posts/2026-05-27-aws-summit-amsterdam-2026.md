@@ -20,7 +20,7 @@ The keynote opened with a single provocative question: **"Why not?"** — and th
 Karen Van De Woestyne (COO at KBC) was among the speakers, and the European angle was front and center: Benelux was highlighted as performing well among EU peers, and the expected AI impact on European GDP was discussed.
 
 On the product side, the keynote spotlighted:
-- **Amazon Q** — framed as a tool to empower non-developers
+- **Amazon Quick** — framed as a tool to empower non-developers
 - **AWS Transform** — for cloud modernisation
 - **Kiro** — AWS's take on spec-driven development, which got a lot of stage time
 - **AWS Lambda Durable Functions** — announced as a notable addition
@@ -37,11 +37,11 @@ I teamed up with Sajad (from Good Habits) and two colleagues from Tata Consultan
 
 ## Workshop: Intelligently Automating Cloud Operations
 
-The afternoon workshop, led by Nishant Gupta (Senior Delivery Consultant at AWS), brought things back to practical cloud ops. The session walked through connecting multiple AWS data sources via S3 buckets and using Amazon Q as an interactive chat agent capable of querying across them intelligently.
+The afternoon workshop, led by Nishant Gupta (Senior Delivery Consultant at AWS), brought things back to practical cloud ops. The session walked through connecting multiple AWS data sources via S3 buckets and using Amazon Quick as an interactive chat agent capable of querying across them intelligently.
 
 Topics covered included AWS Health, Trusted Advisor, Amazon EventBridge, AWS Lambda, and GenAI/ML for cloud ops automation.
 
-One thing I looked into afterwards: Amazon Q uses **GraphRAG** under the hood. That's a promising technique worth keeping an eye on for anyone building AI-powered user experiences.
+One thing I looked into afterwards: Amazon Quick uses **GraphRAG** under the hood. That's a promising technique worth keeping an eye on for anyone building AI-powered user experiences.
 
 ## The real takeaway
 
