@@ -18,7 +18,7 @@ O espaço da expo pareceu visivelmente menos movimentado do que no ano passado. 
 
 A keynote abriu com uma única pergunta provocadora: **"Por que não?"** — e essa energia se manteve ao longo de toda a hora.
 
-Karen Van De Woestyne (COO da KBC) estava entre as palestrantes, e a perspectiva europeia foi central: o Benelux foi destacado como estando entre os melhores desempenhos entre os países da UE, e o impacto esperado da IA no PIB europeu foi discutido.
+Karen Van De Woestyne (COO da KBC) estava entre as palestrantes, e a perspectiva europeia foi central: o Benelux foi destacado como um dos países com melhor desempenho na UE, e o impacto esperado da IA no PIB europeu foi discutido.
 
 No lado dos produtos, a keynote destacou:
 - **Amazon Quick** — apresentado como uma ferramenta para empoderar não-desenvolvedores
