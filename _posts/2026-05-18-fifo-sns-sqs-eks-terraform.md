@@ -10,7 +10,7 @@ mermaid: true
 
 When a service publishes an event, other services often need to react to it — independently, asynchronously, and without the publisher knowing who's listening. AWS SNS + SQS is the standard fanout pattern for this. When you need ordered, exactly-once delivery, the FIFO variants are the right choice.
 
-This post walks through provisioning a FIFO SNS/SQS fanout infrastructure on EKS using Terraform, with IAM permissions wired via EKS Pod Identity.
+This post walks through provisioning a FIFO SNS/SQS fanout infrastructure on EKS using Terraform, with subscription filter policies and IAM permissions wired via EKS Pod Identity.
 
 ## Architecture
 
@@ -40,7 +40,7 @@ resource "aws_sns_topic" "order_placed" {
 
 The `.fifo` suffix is required by AWS — naming validation will reject the resource without it.
 
-`content_based_deduplication = true` means SNS generates the deduplication ID from the message body, so publishers don't need to supply a `MessageDeduplicationId` explicitly. The gotcha: two messages with identical bodies published within the 5-minute deduplication window are silently deduplicated — only one is delivered. This is usually safe if your payloads include a unique entity ID (like an order ID), but worth being explicit about.
+`content_based_deduplication = true` means SNS generates the deduplication ID from the message body, so publishers don't need to supply a `MessageDeduplicationId` explicitly. This means that two messages with identical bodies published within the 5-minute deduplication window are silently deduplicated and only one is delivered.
 
 ## SQS FIFO Queue and DLQ
 
@@ -48,7 +48,7 @@ The `.fifo` suffix is required by AWS — naming validation will reject the reso
 resource "aws_sqs_queue" "fulfillment_order_placed_dlq" {
   name                      = "${var.env}-fulfillment-order-placed-v1-dlq.fifo"
   fifo_queue                = true
-  message_retention_seconds = 86400
+  message_retention_seconds = 1209600
 }
 
 resource "aws_sqs_queue" "fulfillment_order_placed" {
@@ -66,7 +66,7 @@ resource "aws_sqs_queue" "fulfillment_order_placed" {
 
 `maxReceiveCount = 3` is a deliberate choice in a FIFO queue, not just a retry budget. FIFO queues guarantee ordered delivery within a message group: if the first message in a group fails and stays in the queue, no subsequent message in that group is delivered until it's processed or dead-lettered. Too many retries on a poison message means the entire message group is blocked. Three retries covers transient failures without creating long blockages.
 
-Short DLQ retention (1 day here) keeps dead messages from accumulating silently — it forces you to deal with failures promptly.
+`message_retention_seconds = 1209600` 14 days is the maximum SQS retention period, and since AWS does not charge for SQS storage, there's no cost reason to set it lower. The longer window gives you more time to investigate and replay failed messages before they're gone.
 
 ## Queue Policy
 
@@ -112,9 +112,8 @@ resource "aws_sns_topic_subscription" "fulfillment_order_placed" {
 }
 ```
 
-Messages that don't match the filter are discarded at the SNS level — they never reach the SQS queue. The publisher sets the `channel` attribute when calling `sns:Publish`.
+Messages that don't match the filter are discarded at the SNS level and never reach the SQS queue. The publisher sets the `channel` attribute when calling `sns:Publish`.
 
-This is also the extensibility mechanism: each subscriber declares what it cares about, and SNS handles the routing. Adding a new consumer never requires touching the publisher.
 
 ## IAM: Publisher and Consumer
 
@@ -166,4 +165,6 @@ Each role is bound to its Kubernetes service account via `aws_eks_pod_identity_a
 
 ## Wrapping Up
 
-The full pattern — FIFO SNS topic, filtered SQS subscriptions, least-privilege IAM via EKS Pod Identity — gives you ordered, exactly-once event delivery with clean decoupling between services. The filter policy keeps that decoupling intact as you add more consumers: each subscriber receives only the events it cares about, and the publisher never needs to know who's listening.
+The full pattern presented in this post gives you ordered, exactly-once event delivery with clean decoupling between services.
+
+The filter policy enables consumers to route only relevant messages without the publisher having to care for who's subscribing to the messages that are published.
