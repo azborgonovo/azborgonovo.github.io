@@ -64,9 +64,9 @@ resource "aws_sqs_queue" "fulfillment_order_placed" {
 
 `visibility_timeout_seconds` should be set to at least 6× your consumer's average processing time. Once a message is received, SQS hides it from other consumers for this duration. If processing takes longer than the timeout, SQS redelivers the message — burning a retry count and risking duplicate processing.
 
-`maxReceiveCount = 3` is a deliberate choice in a FIFO queue, not just a retry budget. FIFO queues guarantee ordered delivery within a message group: if the first message in a group fails and stays in the queue, no subsequent message in that group is delivered until it's processed or dead-lettered. Too many retries on a poison message means the entire message group is blocked. Three retries covers transient failures without creating long blockages.
+`maxReceiveCount = 3` is a deliberate choice in a FIFO queue, not just a retry budget. FIFO queues guarantee ordered delivery within a message group: if the first message in a group fails and stays in the queue, no subsequent message in that group is delivered until it's processed or dead-lettered. Too many retries on a poison message means the entire message group is blocked. Three retries cover transient failures without creating long blockages.
 
-`message_retention_seconds = 1209600` 14 days is the maximum SQS retention period, and since AWS does not charge for SQS storage, there's no cost reason to set it lower. The longer window gives you more time to investigate and replay failed messages before they're gone.
+`message_retention_seconds = 1209600` — 14 days is the maximum SQS retention period, and since AWS does not charge for SQS storage, there's no cost reason to set it lower. The longer window gives you more time to investigate and replay failed messages before they're gone.
 
 ## Queue Policy
 
@@ -167,4 +167,4 @@ Each role is bound to its Kubernetes service account via `aws_eks_pod_identity_a
 
 The full pattern presented in this post gives you ordered, exactly-once event delivery with clean decoupling between services.
 
-The filter policy enables consumers to route only relevant messages without the publisher having to care for who's subscribing to the messages that are published.
+The filter policy enables consumers to route only relevant messages without the publisher having to care about who's listening.
