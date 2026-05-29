@@ -2,9 +2,10 @@
 lang: en
 layout: post
 title: "AWS Summit Amsterdam 2026"
-date: 2026-05-27
+date: 2026-05-29
 categories: [general]
 tags: [aws, cloud, conference, amazon-q, kiro, gameday]
+permalink: /general/2026/05/27/aws-summit-amsterdam-2026/
 ---
 
 Last Wednesday I joined the AWS Summit in Amsterdam and I enjoyed it even more than last time.
