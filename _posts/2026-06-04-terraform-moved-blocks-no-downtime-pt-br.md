@@ -2,13 +2,13 @@
 lang: pt-br
 layout: post
 title: "Como Refatorar Recursos Terraform Sem Downtime"
-date: 2026-05-18
+date: 2026-06-04
 categories: [coding]
 tags: [aws, terraform, infraestrutura, eks, iam]
-permalink: /coding/2026/05/18/terraform-moved-blocks-no-downtime/
+permalink: /coding/2026/06/04/terraform-moved-blocks-no-downtime/
 ---
 
-Enquanto adicionava permissões de publicação no SNS para a `checkout-api` [como parte de uma configuração de fanout SNS/SQS FIFO](/coding/2026/05/18/fifo-sns-sqs-eks-terraform/), aproveitei para organizar o Terraform. A IAM role havia sido criada condicionalmente usando `count` — um padrão que fazia sentido quando o acesso ao S3 era opcional, mas como a role agora é sempre necessária, a condição deixou de fazer sentido.
+Enquanto adicionava permissões de publicação no SNS para a `checkout-api` [como parte de uma configuração de fanout SNS/SQS FIFO](/coding/2026/06/04/fifo-sns-sqs-eks-terraform/), aproveitei para organizar o Terraform. A IAM role havia sido criada condicionalmente usando `count` — um padrão que fazia sentido quando o acesso ao S3 era opcional, mas como a role agora é sempre necessária, a condição deixou de fazer sentido.
 
 Remover o `count` é uma mudança simples no HCL. Mas o Terraform rastreia recursos pelo endereço no state, e remover o `count` muda esse endereço de `aws_iam_role.checkout_api[0]` para `aws_iam_role.checkout_api`. Sem informar o Terraform sobre essa mudança, ele planeja destruir a role existente e criar uma nova. Isso significa downtime e pods quebrados em produção.
 

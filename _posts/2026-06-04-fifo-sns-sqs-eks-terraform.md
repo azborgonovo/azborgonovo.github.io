@@ -2,7 +2,7 @@
 lang: en
 layout: post
 title: "FIFO SNS/SQS Fanout on EKS with Terraform"
-date: 2026-05-18
+date: 2026-06-04
 categories: [coding]
 tags: [aws, terraform, sns, sqs, eks, iam, infrastructure]
 mermaid: true

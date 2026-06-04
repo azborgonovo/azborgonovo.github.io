@@ -2,12 +2,12 @@
 lang: en
 layout: post
 title: "How to Refactor Terraform Resources Without Downtime"
-date: 2026-05-18
+date: 2026-06-04
 categories: [coding]
 tags: [aws, terraform, infrastructure, eks, iam]
 ---
 
-While adding SNS publish permissions to the `checkout-api` [as part of a FIFO SNS/SQS fanout setup](/coding/2026/05/18/fifo-sns-sqs-eks-terraform/), I cleaned up its Terraform resource definition along the way. The IAM role had been created conditionally using `count` — an old pattern that made sense when S3 access was optional, but now that the role is always needed, the condition was no longer applicable.
+While adding SNS publish permissions to the `checkout-api` [as part of a FIFO SNS/SQS fanout setup](/coding/2026/06/04/fifo-sns-sqs-eks-terraform/), I cleaned up its Terraform resource definition along the way. The IAM role had been created conditionally using `count` — an old pattern that made sense when S3 access was optional, but now that the role is always needed, the condition was no longer applicable.
 
 Removing `count` is a one-line change in HCL. But Terraform tracks resources by their state address, and removing `count` changes that address from `aws_iam_role.checkout_api[0]` to `aws_iam_role.checkout_api`. Without telling Terraform about this, it plans to destroy the existing role and create a new one. This means downtime and broken pods in production.
 

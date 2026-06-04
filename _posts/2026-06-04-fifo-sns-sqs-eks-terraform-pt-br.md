@@ -2,11 +2,11 @@
 lang: pt-br
 layout: post
 title: "Fanout FIFO SNS/SQS no EKS com Terraform"
-date: 2026-05-18
+date: 2026-06-04
 categories: [coding]
 tags: [aws, terraform, sns, sqs, eks, iam, infraestrutura]
 mermaid: true
-permalink: /coding/2026/05/18/fifo-sns-sqs-eks-terraform/
+permalink: /coding/2026/06/04/fifo-sns-sqs-eks-terraform/
 ---
 
 [Mensageria](https://microservices.io/patterns/communication-style/messaging.html) é um padrão poderoso para habilitar serviços com deploy independente e baixo acoplamento. [SNS](https://aws.amazon.com/sns/) + [SQS](https://aws.amazon.com/sqs/) é o padrão AWS de fanout para que um publicador notifique múltiplos consumidores sem saber quem está ouvindo. As variantes [FIFO](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) são a escolha certa quando você precisa de processamento ordenado e exactly-once.
