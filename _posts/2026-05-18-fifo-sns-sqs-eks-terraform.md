@@ -8,9 +8,9 @@ tags: [aws, terraform, sns, sqs, eks, iam, infrastructure]
 mermaid: true
 ---
 
-[Messaging](https://microservices.io/patterns/communication-style/messaging.html) is a powerful pattern to enable independently deployable, loosely coupled services. [SNS](https://aws.amazon.com/sns/) + [SQS](https://aws.amazon.com/sqs/) is the AWS standard fanout pattern for a publisher to notify multiple consumers without knowing who's listening. The [FIFO](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) variants are the right choice when you need ordered, exactly-once processing.
+[Messaging](https://microservices.io/patterns/communication-style/messaging.html) is a powerful pattern to enable independently deployable, loosely coupled services. [SNS](https://aws.amazon.com/sns/) + [SQS](https://aws.amazon.com/sqs/) is the AWS standard fanout pattern for a publisher to notify multiple consumers without knowing who's listening.The [FIFO](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) variants are the right choice when you need ordered, exactly-once processing.
 
-This post walks through provisioning a FIFO SNS/SQS fanout infrastructure on EKS using Terraform, with subscription filter policies and IAM permissions wired via EKS Pod Identity.
+This post walks through provisioning a fictitious FIFO SNS/SQS infrastructure using Terraform, with subscription filter policies and IAM wired via EKS Pod Identity.
 
 ## Architecture
 
