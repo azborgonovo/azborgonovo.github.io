@@ -9,9 +9,9 @@ mermaid: true
 permalink: /coding/2026/05/18/fifo-sns-sqs-eks-terraform/
 ---
 
-Quando um serviço publica um evento, outros serviços frequentemente precisam reagir a ele — de forma independente, assíncrona, e sem que o publicador saiba quem está ouvindo. [SNS](https://aws.amazon.com/sns/) + [SQS](https://aws.amazon.com/sqs/) é o padrão AWS de fanout para isso. As variantes [FIFO](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) são a escolha certa quando você precisa de processamento ordenado e exactly-once.
+[Mensageria](https://microservices.io/patterns/communication-style/messaging.html) é um padrão poderoso para habilitar serviços com deploy independente e baixo acoplamento. [SNS](https://aws.amazon.com/sns/) + [SQS](https://aws.amazon.com/sqs/) é o padrão AWS de fanout para que um publicador notifique múltiplos consumidores sem saber quem está ouvindo. As variantes [FIFO](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html) são a escolha certa quando você precisa de processamento ordenado e exactly-once.
 
-Este post mostra como provisionar uma infraestrutura de fanout FIFO SNS/SQS no EKS usando Terraform, com políticas de filtro de assinatura e permissões IAM configuradas via EKS Pod Identity.
+Este post mostra como provisionar uma infraestrutura fictícia FIFO SNS/SQS usando Terraform, com políticas de filtro de assinatura e IAM configurados via EKS Pod Identity.
 
 ## Arquitetura
 
