@@ -7,15 +7,13 @@ categories: [coding]
 tags: [aws, dotnet, sns, sqs, opentelemetry, csharp, messaging]
 ---
 
-The [previous post](/coding/2026/05/18/fifo-sns-sqs-eks-terraform/) covered provisioning the FIFO SNS/SQS fanout infrastructure on EKS with Terraform. This post shows the .NET side: how `checkout-api` publishes `order-placed` events to SNS, and how `fulfillment-service` consumes them from SQS.
-
-Two things are worth calling out specifically: `Amazon.Extensions.NETCore.Setup` makes AWS client registration with the built-in DI container concise and consistent, and the OpenTelemetry [Propagators API](https://opentelemetry.io/docs/specs/otel/context/api-propagators/) lets you carry distributed trace context across the SNS/SQS boundary so traces don't break at the messaging layer.
+Previously I covered provisioning a [FIFO SNS/SQS fanout infrastructure on EKS with Terraform](/coding/2026/05/18/fifo-sns-sqs-eks-terraform/). In this post, I share how .NET applications can publish messages to SNS, and how to consume them from SQS.
 
 ## Raw message delivery
 
 By default, when SNS delivers a message to an SQS queue, it wraps it in an SNS notification envelope — a JSON object where the original payload is embedded as a string in the `Message` field, and the SNS message attributes appear inside that envelope rather than as SQS message attributes.
 
-To receive the payload directly as the message body — and to have the SNS message attributes (including the OpenTelemetry trace context) forwarded as SQS message attributes — the subscription must enable raw message delivery. Add `raw_message_delivery = true` to the Terraform subscription from the previous post:
+To receive the payload directly as the message body the subscription must enable raw message delivery. Add `raw_message_delivery = true` to the Terraform subscription from the previous post:
 
 ```hcl
 resource "aws_sns_topic_subscription" "fulfillment_order_placed" {
@@ -30,9 +28,9 @@ resource "aws_sns_topic_subscription" "fulfillment_order_placed" {
 }
 ```
 
-Everything in both services below assumes raw message delivery is enabled.
+Everything in both examples below assumes raw message delivery is enabled.
 
-## Publishing from checkout-api
+## Publishing to SNS
 
 ### Packages
 
@@ -40,6 +38,7 @@ Everything in both services below assumes raw message delivery is enabled.
 AWSSDK.SimpleNotificationService
 Amazon.Extensions.NETCore.Setup
 OpenTelemetry
+OpenTelemetry.Instrumentation.AWS
 ```
 
 ### DI registration
@@ -91,11 +90,10 @@ services.AddAWSService<IAmazonSimpleNotificationService>();
 
 ### The publisher
 
-The handler receives a domain event and publishes it to SNS. Three things matter here:
+The handler receives a domain event and publishes it to SNS. Two things matter here:
 
 - `MessageGroupId` — required by all FIFO topics. It determines ordering scope: messages with the same group ID are delivered in published order. Using the order ID as the group ID keeps per-order events ordered without blocking unrelated orders.
 - The `channel` attribute — matched by the subscription filter policy. Messages that don't carry `channel = "online"` or `channel = "app"` are silently discarded at the SNS level.
-- Trace context injection — covered in the next section.
 
 ```csharp
 public class PublishOrderPlacedToSnsHandler(
@@ -124,8 +122,6 @@ public class PublishOrderPlacedToSnsHandler(
                 ["channel"] = new() { DataType = "String", StringValue = notification.Channel }
             };
 
-            InjectPropagationContext(messageAttributes);
-
             var request = new PublishRequest
             {
                 TopicArn        = _topicArn,
@@ -143,32 +139,29 @@ public class PublishOrderPlacedToSnsHandler(
             logger.LogError(ex, "Failed to publish OrderPlaced to SNS for order {OrderId}", notification.OrderId);
         }
     }
-
-    private static void InjectPropagationContext(Dictionary<string, MessageAttributeValue> messageAttributes)
-    {
-        Propagators.DefaultTextMapPropagator.Inject(
-            new PropagationContext(Activity.Current?.Context ?? default, Baggage.Current),
-            messageAttributes,
-            (carrier, key, value) => carrier[key] = new MessageAttributeValue
-            {
-                DataType    = "String",
-                StringValue = value
-            });
-    }
 }
 ```
 
 ### Trace context injection
 
-`Propagators.DefaultTextMapPropagator.Inject` writes the current trace context into the message attributes using whatever propagation format is configured (W3C TraceContext by default). It calls the setter lambda once for each propagation key — typically `traceparent` and `tracestate`. The result is that the outgoing SNS message carries attributes like:
+The `OpenTelemetry.Instrumentation.AWS` hooks into the AWS SDK pipeline and injects the current context into the outgoing SNS message attributes for you. All it takes is registering the instrumentation on the tracer provider:
+
+```csharp
+services.AddOpenTelemetry()
+    .WithTracing(tracing => tracing
+        .AddAWSInstrumentation()
+        .AddSource(Instrumentation.ActivitySource.Name));
+```
+
+With that in place, every `PublishAsync` (and `SendMessageAsync`) call uses the global propagator to write the active context into the message attributes using whatever format is configured (W3C TraceContext by default — typically `traceparent` and `tracestate`). The outgoing SNS message ends up carrying attributes like:
 
 ```
 traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01
 ```
 
-This is what lets the consumer reconstruct the trace and link its spans back to the publisher's trace, giving you an end-to-end trace across the service boundary.
+The context is added regardless of the sampling decision, so downstream services can make consistent decisions and you don't end up with broken traces. This is what lets the consumer reconstruct the trace and link its spans back to the publisher's trace, giving you an end-to-end trace across the service boundary.
 
-## Consuming from fulfillment-service
+## Consuming from SQS
 
 ### Packages
 
@@ -176,6 +169,7 @@ This is what lets the consumer reconstruct the trace and link its spans back to 
 AWSSDK.SQS
 Amazon.Extensions.NETCore.Setup
 OpenTelemetry
+OpenTelemetry.Instrumentation.AWS
 ```
 
 ### DI registration
@@ -331,20 +325,16 @@ public class SqsOrderPlacedBackgroundService(
             default,
             messageAttributes,
             static (carrier, key) =>
-            {
-                var match = carrier
-                    .FirstOrDefault(kv => string.Equals(kv.Key, key, StringComparison.OrdinalIgnoreCase));
-                return match.Value?.StringValue is { } value ? [value] : [];
-            });
+                carrier.TryGetValue(key, out var attribute) && attribute.StringValue is { } value
+                    ? [value]
+                    : []);
     }
 }
 ```
 
 ### Trace context extraction
 
-`Propagators.DefaultTextMapPropagator.Extract` reads the propagation headers from the message attributes and reconstructs a `PropagationContext`. That context is then passed as the parent when starting the consumer activity, so the span created here appears as a child of the publisher's span in your tracing backend.
-
-The getter lambda does a case-insensitive key lookup because attribute names are case-sensitive in SQS, but the propagation format (W3C TraceContext) defines header names in lowercase (`traceparent`). If the publisher used a different casing, the case-insensitive comparison ensures extraction still works.
+Unlike injection, extraction is *not* automatic. `OpenTelemetry.Instrumentation.AWS` creates client spans for the SDK calls (`ReceiveMessage`, `DeleteMessage`), but it does not read the upstream context out of the received messages or parent your processing span to it. That last step is on you: read the [propagation](https://opentelemetry.io/docs/specs/otel/context/api-propagators/) headers back and start the consumer activity with the extracted context.
 
 ### The message handler
 
@@ -382,6 +372,6 @@ public class OrderPlacedMessageHandler(
 
 ## Wrapping up
 
-`Amazon.Extensions.NETCore.Setup` reduces AWS client setup to two lines per service and keeps credential and region configuration in one place. The Propagators API connects traces across the SNS/SQS boundary with minimal code — inject on publish, extract on receive, pass the context when starting the consumer activity.
+`Amazon.Extensions.NETCore.Setup` reduces AWS client setup to two lines per service and keeps credential and region configuration in one place. `OpenTelemetry.Instrumentation.AWS` connects traces across the SNS/SQS boundary with minimal code: injection on publish is fully automatic once the instrumentation is registered, and on the consumer side you only need to extract the context and pass it when starting the processing activity.
 
 The infrastructure side (topic, queue, subscription, IAM) is covered in the [previous post](/coding/2026/05/18/fifo-sns-sqs-eks-terraform/).
