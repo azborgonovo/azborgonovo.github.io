@@ -7,7 +7,7 @@ categories: [coding]
 tags: [aws, dotnet, sns, sqs, opentelemetry, csharp, messaging]
 ---
 
-Previously I covered provisioning a [FIFO SNS/SQS fanout infrastructure on EKS with Terraform](/coding/2026/05/18/fifo-sns-sqs-eks-terraform/). In this post, I share how .NET applications can publish messages to SNS, and how to consume them from SQS.
+Previously, I covered provisioning a [FIFO SNS/SQS fanout infrastructure on EKS with Terraform](/coding/2026/05/18/fifo-sns-sqs-eks-terraform/). In this post, I share how .NET applications can publish messages to SNS and consume them from SQS.
 
 ## Raw message delivery
 
