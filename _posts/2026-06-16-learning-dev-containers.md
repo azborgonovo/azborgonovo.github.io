@@ -1,7 +1,7 @@
 ---
 lang: en
 layout: post
-title: "Development containers 101"
+title: "Learning Dev Containers"
 date: 2026-06-16
 categories: [coding]
 tags: [devcontainers, docker, development, tooling]

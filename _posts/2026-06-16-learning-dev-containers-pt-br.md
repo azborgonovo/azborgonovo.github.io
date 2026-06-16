@@ -1,11 +1,11 @@
 ---
 lang: pt-br
 layout: post
-title: "Development containers 101"
+title: "Aprendendo Dev Containers"
 date: 2026-06-16
 categories: [coding]
 tags: [devcontainers, docker, desenvolvimento, ferramentas]
-permalink: /coding/2026/06/16/development-containers-101/
+permalink: /coding/2026/06/16/learning-dev-containers/
 ---
 
 Recentemente comecei a trabalhar em um projeto que usa [DevContainers](https://containers.dev/). Para me preparar para o uso e suporte à infraestrutura de desenvolvimento, busquei material de aprendizado online e acabei no canal do YouTube do Visual Studio Code. Compartilho aqui uma breve referência para outros que também estão iniciando uso de DevContainers.
