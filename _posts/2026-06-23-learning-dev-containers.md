@@ -2,7 +2,7 @@
 lang: en
 layout: post
 title: "Learning Dev Containers"
-date: 2026-06-16
+date: 2026-06-23
 categories: [coding]
 tags: [devcontainers, docker, development, tooling]
 ---
