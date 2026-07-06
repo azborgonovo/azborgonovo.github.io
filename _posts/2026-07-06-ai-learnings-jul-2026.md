@@ -1,17 +1,17 @@
 ---
 lang: en
 layout: post
-title: "AI Learnings: Jun/2026 version"
-date: 2026-06-30
+title: "AI Learnings: July/2026 version"
+date: 2026-07-06
 categories: [ai]
 tags: [ai, learnings, claude-code, kiro]
 ---
 
-June wraps up with no shortage of interesting material to share. Here are the links, tools, and concepts that caught my attention this month.
+We're a few days into July, and there's still no shortage of interesting material carried over from June to share. Here are the links, tools, and concepts that caught my attention recently.
 
 ## Beyond the basics with Claude Code
 
-[Beyond the basics with Claude Code](https://www.youtube.com/watch?v=tuY2ChJIx48) is a video that goes past introductory usage and into more advanced patterns — the kind of content that becomes useful once you've moved past the "it works" phase and want to understand *why* certain approaches work better than others.
+[Beyond the basics with Claude Code](https://www.youtube.com/watch?v=tuY2ChJIx48) is a talk by Daisy Hollman, Member of Technical Staff at Anthropic, that goes past introductory usage, helps one understand the *why* and into more advanced patterns. Hollman's talk is clear, well-paced, and grounded in practical detail rather than hype.
 
 ## What kind of dev are you?
 
@@ -19,7 +19,7 @@ A former colleague of mine, Lucas Campos, released a fun personality quiz for so
 
 ## Claude Code instability
 
-If you use Claude Code daily you've likely experienced the some [instability](https://status.claude.com/) in June. A few notable periods of service degradation served as a reminder that we're building workflows on infrastructure that is still maturing.
+If you use Claude Code daily, you've likely experienced some [instability](https://status.claude.com/) in June. A few notable periods of service degradation served as a reminder that we're building workflows on infrastructure that is still maturing.
 
 ## Loop Engineering
 
@@ -40,7 +40,7 @@ The essential warning is equally important: loop engineering demands [judgment](
 
 I was looking for a standard approach to define documents that support AI-augmented delivery and one of the only concepts I encountered so far is [Kiro's steering documents](https://kiro.dev/docs/steering/).
 
-These documents have a defined inclusion mode that tells *when* a document is loaded. It's similar to Agent Skills, but it's [worth a read](https://kiro.dev/docs/steering/#inclusion-modes) because it extends the capabilities a bit further.
+These documents have a defined inclusion mode that tells *when* a document is loaded. It's similar to Agent Skills, but [worth a read](https://kiro.dev/docs/steering/#inclusion-modes) because it extends the concept a bit further.
 
 Nevertheless, what caught my attention was how they have structured their foundational documents. Three files are auto-generated when you get started:
 
@@ -57,6 +57,5 @@ Beyond the foundation, the following common steering files are recommended by Ki
 | `code-conventions.md` | Naming patterns, file organization, import ordering, architectural decisions |
 | `security-policies.md` | Authentication requirements, data validation, input sanitization, vulnerability prevention |
 | `deployment-workflow.md` | Build procedures, environment configurations, deployment steps, rollback strategies |
-
 
 Regardless of which AI IDE, the categories Kiro names (API standards, testing standards, code conventions, security policies, deployment workflow) are a solid checklist for building any custom context library.
