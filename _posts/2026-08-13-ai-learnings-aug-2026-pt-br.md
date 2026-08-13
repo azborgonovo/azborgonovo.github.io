@@ -57,12 +57,6 @@ Minha regra era binária: uma regra importa para o projeto ou não. Mas uma pág
 **A confiança em uma base de conhecimento depende de onde cada página está fundamentada.**
 Os comentários no gist do llm-wiki são tão perspicazes quanto o conceito em si. O mais interessante para mim: uma página da wiki nunca deve poder servir de fundamento para outra página da wiki. Sem essa restrição, uma página cita uma página que citou uma alucinação, e em algum momento três documentos concordam entre si. Isso não é preocupação quando você escreve todas as notas. Passa a ser assim que um agente escreve páginas que você não leu, que é exatamente a direção para onde tudo isso está indo.
 
-Onde cheguei, por ora, é uma divisão em três níveis em vez de dois:
-
-1. **Steering** — `CLAUDE.md`, skills e memória pessoal. Imperativo, sempre carregado, pequeno.
-2. **Conhecimento** — uma llm-wiki em um repositório, consultada sob demanda, com cada página declarando suas fontes.
-3. **Conhecimento compartilhado** — a mesma wiki, tornada conformante com o OKF, quando ela sai da minha máquina.
-
 ## Reduzindo a fricção no desenvolvimento assistido por IA
 
 Rahul Garg publicou [Patterns for reducing friction in AI-assisted development](https://martinfowler.com/articles/reduce-friction-ai/) no site do Martin Fowler. Adorei como ele enquadrou o onboarding de agentes de IA como o mesmo problema que enfrentamos ao integrar um novo colega de time.

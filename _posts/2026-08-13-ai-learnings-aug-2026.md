@@ -57,12 +57,6 @@ My rule of thumb was binary: a rule either matters to the project or it does not
 **Trust in a knowledge base depends on where each page is grounded.**
 The comments on the llm-wiki gist are as insightful as the concept itself. The most interesting one for me: a wiki page should never be allowed to ground another wiki page. Without that constraint, a page cites a page that cited a hallucination, and eventually three documents agree with each other. This is not a concern when you write every note yourself. It becomes one as soon as an agent writes pages you have not read, which is precisely the direction all of this is heading.
 
-Where I have landed, for now, is a three-tier split rather than two:
-
-1. **Steering** — `CLAUDE.md`, skills and personal memory. Imperative, always loaded, small.
-2. **Knowledge** — an llm-wiki in a repository, retrieved on demand, with every page declaring its sources.
-3. **Shared knowledge** — the same wiki, made OKF-conformant, once it leaves my machine.
-
 ## Reducing friction in AI-assisted development
 
 Rahul Garg published [Patterns for reducing friction in AI-assisted development](https://martinfowler.com/articles/reduce-friction-ai/) on Martin Fowler's site. I loved how he framed onboarding AI agents as the same problem we face when onboarding a new teammate.
