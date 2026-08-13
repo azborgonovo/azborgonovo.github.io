@@ -169,6 +169,10 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/):
 
 ## Adding Content
 
+### Post writing style
+
+Do not use em dashes (`—`) in post prose. Rewrite with commas, colons, parentheses, or a second sentence. The one exception is the `**Term** — definition` pattern inside bulleted or numbered lists, which is established across existing posts.
+
 ### Post images
 
 Images for a post must live in a dedicated subfolder named after the post's slug (the date-less part of the filename, without the `-pt-br` suffix):
