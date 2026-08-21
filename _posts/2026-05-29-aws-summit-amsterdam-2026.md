@@ -31,7 +31,7 @@ AWS wants to be "the best place to build" and frames this in three pillars: **In
 
 The GameDay presented participants with the following role-play scenario: you are a new hire at Unicorn.Rentals, the world's largest mythical creature rental company. Your job? Complete a series of AWS challenges to earn points.
 
-I teamed up with Sajad, Yashwanth and Dhananjai. We started lightly, but as soon as we achieved first place in the scoreboard, we didn't want to let it go. Closer to the end a competing team pushed us to second place. Only 2 minutes before the finish line, we regained our position and walked away with first place.
+I teamed up with [Sajad](https://www.linkedin.com/in/sajadhsm/), Yashwanth and Dhananjai. We started lightly, but as soon as we achieved first place in the scoreboard, we didn't want to let it go. Closer to the end a competing team pushed us to second place. Only 2 minutes before the finish line, we regained our position and walked away with first place.
 
 It was a fun way to try out Kiro, practice prompt engineering, operating AgentCore, and of course, play as a team.
 

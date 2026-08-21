@@ -10,7 +10,7 @@ permalink: /ai/2026/08/13/ai-learnings-aug-2026/
 
 ## llm-wiki and the Open Knowledge Format
 
-My colleague Majid introduced me to two related ideas that I had not come across before: the llm-wiki pattern and the Open Knowledge Format (OKF).
+My colleague [Majid](https://www.linkedin.com/in/majidemad/) introduced me to two related ideas that I had not come across before: the llm-wiki pattern and the Open Knowledge Format (OKF).
 
 [llm-wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) is a gist by Andrej Karpathy describing a simple pattern: instead of running retrieval over raw documents every time you have a question, you let the LLM maintain a wiki. There are three layers:
 - The *raw* sources, which are never modified;

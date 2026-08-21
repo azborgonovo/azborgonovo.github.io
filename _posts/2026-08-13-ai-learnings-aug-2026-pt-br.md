@@ -10,7 +10,7 @@ permalink: /ai/2026/08/13/ai-learnings-aug-2026/
 
 ## llm-wiki e o Open Knowledge Format
 
-Meu colega Majid me apresentou duas ideias relacionadas que eu ainda não conhecia: o padrão llm-wiki e o Open Knowledge Format (OKF).
+Meu colega [Majid](https://www.linkedin.com/in/majidemad/) me apresentou duas ideias relacionadas que eu ainda não conhecia: o padrão llm-wiki e o Open Knowledge Format (OKF).
 
 O [llm-wiki](https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f) é um gist do Andrej Karpathy que descreve um padrão simples: em vez de executar retrieval sobre documentos brutos a cada pergunta, você deixa o LLM manter uma wiki. São três camadas:
 - As fontes *brutas*, que nunca são modificadas;
